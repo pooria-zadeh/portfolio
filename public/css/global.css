@@ -1,0 +1,53 @@
+#nprogress .bar {
+  z-index: 99999 !important;
+  background-color: #ff9645 !important;
+}
+
+@font-face {
+  font-family: Monsterrat;
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../static/fonts/Montserrat-Light.woff") format("woff"),
+    url("../static/fonts/Montserrat-Light.woff2") format("woff2"),
+    url("../static/fonts/Montserrat-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: Monsterrat;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../static/fonts/Montserrat-Regular.woff") format("woff"),
+    url("../static/fonts/Montserrat-Regular.woff2") format("woff2"),
+    url("../static/fonts/Montserrat-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Monsterrat;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../static/fonts/Montserrat-Medium.woff") format("woff"),
+    url("../static/fonts/Montserrat-Medium.woff2") format("woff2"),
+    url("../static/fonts/Montserrat-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Monsterrat;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../static/fonts/Montserrat-SemiBold.woff") format("woff"),
+    url("../static/fonts/Montserrat-SemiBold.woff2") format("woff2"),
+    url("../static/fonts/Montserrat-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Monsterrat;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../static/fonts/Montserrat-Bold.woff") format("woff"),
+    url("../static/fonts/Montserrat-Bold.woff2") format("woff2"),
+    url("../static/fonts/Montserrat-Bold.ttf") format("truetype");
+}
