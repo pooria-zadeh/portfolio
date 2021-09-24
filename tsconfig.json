@@ -15,7 +15,8 @@
       "@/components/*": ["src/components/*"],
       "@/i18n/*": ["src/i18n/*"],
       "@/layout/*": ["src/layout/*"],
-      "@/theme/*": ["src/theme/*"]
+      "@/theme/*": ["src/theme/*"],
+      "@/types/*": ["src/@types/*"]
     },
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

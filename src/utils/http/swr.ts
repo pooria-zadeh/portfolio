@@ -1,25 +1,11 @@
-import { RES_STATUS } from "src/utils/http/constant";
 import { ACCESS_TOKEN_FAILED } from "src/utils/storage/constant";
 import { SWRConfiguration } from "swr";
-import { fbGetToken } from "./firebase";
+import { RES_STATUS } from "./constant";
+// import { fbGetToken } from "./firebase";
 import client, { setAuthHeader } from "./swr.client";
 import { isTokenExpired } from "./token";
 
 let refreshTokenRequested: any;
-
-export function oldFetcher<T, C = any>(GQL: string, variables?: T) {
-  return new Promise<C>(async (resolve, reject) => {
-    try {
-      const res = await client.request(GQL, variables);
-
-      //token expired || no token exist
-      resolve(res);
-    } catch (err) {
-      console.error(err);
-      reject(err);
-    }
-  });
-}
 
 type QueryType = {
   res: any;
@@ -49,14 +35,15 @@ export function graphqlFetcher<T extends QueryType>(
       const authFail = Object.keys(res).some(
         (key: string) => res[key].status === RES_STATUS.unauthorize
       );
-      
+
       if (authFail) {
         //token expired
         //just single request should request for refresh token and other should wait for
         if (!refreshTokenRequested) {
           refreshTokenRequested = true;
           try {
-            const idToken = await fbGetToken();
+            // const idToken = await fbGetToken();
+            const idToken = "await fbGetToken();";
             if (!isTokenExpired(idToken)) {
               setAuthHeader(idToken);
 
@@ -92,13 +79,3 @@ export function graphqlFetcher<T extends QueryType>(
     }
   });
 }
-
-export const nopeFetcher: SWRConfiguration = {
-  revalidateOnFocus: false,
-  revalidateOnMount: false,
-  revalidateOnReconnect: false,
-  refreshWhenOffline: false,
-  refreshWhenHidden: false,
-  refreshInterval: 0,
-  fetcher: () => {},
-};

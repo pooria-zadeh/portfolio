@@ -1,4 +1,4 @@
-import { getPaletteColor } from "src/utils/theme/helper";
+import { getPaletteColor } from "@/theme/helper";
 import styled from "@emotion/styled";
 import React, { memo } from "react";
 
