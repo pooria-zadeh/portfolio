@@ -1,12 +1,15 @@
-/* eslint-disable @next/next/no-img-element */
-export default function Home() {
+import React from "react";
+
+import Head from "next/head";
+import { useOnUserEnter } from "src/auth/useRedirectOnToken";
+
+const Index: React.FC = () => {
+  useOnUserEnter();
   return (
-    <div>
-      <p>Hello World</p>
-      <img
-        src="https://besthqwallpapers.com/Uploads/9-9-2018/65347/thumb2-emma-watson-british-actress-portrait-face-photoshoot.jpg"
-        alt="emma watson"
-      />
-    </div>
+    <Head>
+      <meta name="robots" content="noindex, nofollow" />
+    </Head>
   );
-}
+};
+
+export default Index;

@@ -12,13 +12,16 @@
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "axios": "^0.21.4",
+    "formik": "^2.2.9",
     "graphql-request": "^3.5.0",
     "jwt-decode": "^3.1.2",
-    "next": "11.1.2",
+    "next": "^11.0.2-canary.4",
     "nookies": "^2.5.2",
     "nprogress": "^0.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-overlays": "^5.1.1",
+    "stylis-plugin-rtl": "^2.1.1",
     "swr": "^1.0.1"
   },
   "devDependencies": {
@@ -26,9 +29,14 @@
     "@types/nprogress": "^0.2.0",
     "@types/react": "^17.0.21",
     "@types/react-dom": "^17.0.9",
+    "babel-plugin-import-directory": "^1.1.0",
+    "babel-plugin-wildcard": "^7.0.0",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
     "globby": "^12.0.2",
+    "istanbul-lib-coverage": "^3.0.0",
+    "next-sitemap": "^1.6.121",
+    "nyc": "^15.1.0",
     "typescript": "^4.4.3"
   }
 }

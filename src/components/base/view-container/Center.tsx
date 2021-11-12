@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 import { Property } from 'csstype';
-import { FlexContainer } from './Container';
+import { MFlexContainerView } from './Container';
 
 interface CenterView {
     alignSelf?: Property.AlignSelf;
 }
 
-export const StyledCenter = styled(FlexContainer)<CenterView>(({ alignSelf }) => ({
+export const MCenterView = styled(MFlexContainerView)<CenterView>(({ alignSelf }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center'

@@ -1,6 +1,6 @@
 import { Localization } from "@/i18n/types";
 import themeObj from "@/theme/themeObject";
-import { Variants, Weights } from "@/provider/theme/typographySettings";
+import { Variants, Weights } from "@/theme/typographySettings";
 import { IconProps } from "src/assets/icons/SvgIcon";
 import { StyledComponent } from "@emotion/styled";
 import { breakpointsKeys } from "@/theme/breakpoint";

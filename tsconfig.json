@@ -16,6 +16,7 @@
       "@/i18n/*": ["src/i18n/*"],
       "@/layout/*": ["src/layout/*"],
       "@/theme/*": ["src/theme/*"],
+      "@/utils/*": ["src/utils/*"],
       "@/types/*": ["src/@types/*"]
     },
     "skipLibCheck": true,

@@ -3,7 +3,7 @@ import { Property } from 'csstype';
 
 export type ContainerProps = { maxWidth?: AppBreakpointKeys };
 
-export const Container = styled.div<ContainerProps>(({ theme, maxWidth = 'xl' }) => ({
+export const MContainerView = styled.div<ContainerProps>(({ theme, maxWidth = 'xl' }) => ({
     width: '100%',
     maxWidth: theme.breakpoints.breakpointsKeys[maxWidth],
     margin: '0 auto'
@@ -16,7 +16,7 @@ export interface FlexViewProps extends ContainerProps {
     w?: number;
 }
 
-export const FlexContainer = styled.div<FlexViewProps>(
+export const MFlexContainerView = styled.div<FlexViewProps>(
     ({ theme, alignItems, justifyContent, alignSelf, w, maxWidth }) => ({
         display: 'flex',
         ...(alignItems && { alignItems }),

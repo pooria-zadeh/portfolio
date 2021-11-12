@@ -1,5 +1,6 @@
 import themeObj from '@/theme/themeObject';
 import '@emotion/react';
+import { Property } from 'csstype';
 
 type ThemeObj = typeof themeObj;
 
@@ -17,6 +18,6 @@ declare module '@emotion/react' {
 // @types/react/index.d.ts
 declare module 'react' {
     interface Attributes {
-        css?: any;
+        css?: Property;
     }
 }

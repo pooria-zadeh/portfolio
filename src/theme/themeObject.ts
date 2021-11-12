@@ -78,6 +78,7 @@ const themeObj = {
   },
   shape: {
     borderRadius: {
+      common: 8,
       tiny: 4,
       small: 8,
       medium: 12,
@@ -88,12 +89,8 @@ const themeObj = {
 
   shadows: {
     shadowColor: SHADOW_COLOR,
-    input: "rgba(0, 0, 0, 0.16) 0px 3px 6px 0px",
-    selectInput: "rgba(0, 0, 0, 0.16) 0px 0px 6px 3px",
-    regular: `0px 0px 7px 4px ${SHADOW_COLOR}, 0 1px 2px rgba(0,0,0,0.24)`,
-    higher: `0px 0px 4px 2px ${SHADOW_COLOR}, 0 3px 5px rgba(0,0,0,0.24)`,
 
-    bottom: `0 4px 2px -2px ${SHADOW_COLOR}`,
+    common: `0px 0px 7px 4px ${SHADOW_COLOR}, 0 1px 2px rgba(0,0,0,0.24)`,
   },
   sizes: {
     pageHeight: `calc(100vh - ${TOOLBAR_HEIGHT}px)`,

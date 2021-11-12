@@ -13,6 +13,7 @@ export type Strings = {
 };
 
 export type Localization = {
+    direction: string
     locale: Locale;
     translations: Translations;
     namespaces: string | Array<string>;

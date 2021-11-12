@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
-import { FlexContainer } from './Container';
+import { MFlexContainerView } from './Container';
 
-export const StyledColumn = styled(FlexContainer)(({}) => ({
+export const MColumnView = styled(MFlexContainerView)(({}) => ({
     flexDirection: 'column'
 }));

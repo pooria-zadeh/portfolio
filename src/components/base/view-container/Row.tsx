@@ -1,15 +1,13 @@
 import styled from '@emotion/styled';
 
-import { FlexContainer } from './Container';
+import { MFlexContainerView } from './Container';
 
 interface RowViewProps {
     fullWidth?: boolean;
     wrap?: 'true' | 'false';
 }
 
-export const StyledRow = styled(FlexContainer)<RowViewProps>(({ wrap }) => ({
+export const MRowView = styled(MFlexContainerView)<RowViewProps>(({ wrap }) => ({
     flexDirection: 'row',
     ...(wrap && { flexWrap: 'wrap' })
 }));
-
-export const RowContainer = styled(StyledRow)({});
