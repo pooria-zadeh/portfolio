@@ -19,11 +19,11 @@ const themeObj = {
     },
     secondary: {
       main: "#F7C8DA",
-      dark: "#F7C8DA",
-      light: "#F7C8DA",
-      "100": "#FDBAF8",
-      "200": "#FF8CF6",
-      "300": "#F7F2F4",
+      dark: "#",
+      light: "#",
+      "100": "#",
+      "200": "#",
+      "300": "#",
     },
 
     info: {
@@ -33,17 +33,6 @@ const themeObj = {
       red: "#FF4D4D",
     },
 
-    blue: {
-      main: "#2680eb",
-      "100": "#2680eb",
-    },
-    survey: {
-      main: "#00CCB8",
-      green: "#00CCB8",
-      grey: "#798897",
-      orange: "#FF9645",
-      blue: "#00B0DE",
-    },
     grey: {
       "100": "#A2A6BB",
       "200": "#E5E7F0",
@@ -56,12 +45,7 @@ const themeObj = {
       smoothestGrey: "#b8b8b8",
       liteGray: "#ececec",
     },
-    border: {
-      main: "#A2A6BB33",
-    },
-    seprator: {
-      "100": "#00000029",
-    },
+
     background: {
       gray: "#B3B3B3",
       boldGray: "#B3B3B3",

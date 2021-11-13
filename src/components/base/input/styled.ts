@@ -81,7 +81,7 @@ export const CommonInputWrapper = styled.div<{ error?: boolean }>(({ theme, erro
     },
     padding: 16,
     ...(error && {
-        borderColor: theme.palette.red[100]
+        borderColor: theme.palette.info.red
     })
 }));
 

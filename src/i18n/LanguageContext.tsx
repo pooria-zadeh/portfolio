@@ -20,6 +20,7 @@ interface ContextProps {
 
 export const LanguageContext = React.createContext<ContextProps>({
   localization: {
+    direction: "ltr",
     locale: "en", // default lang
     translations: {
       /*common: defaultStrings.common*/
@@ -82,8 +83,6 @@ export const getLocalizationProps = (
   ctx: GetStaticPropsContext<ParsedUrlQuery>,
   ...namespaces: Array<string>
 ) => {
-  
-
   const lang: Locale = (ctx.params?.lang as Locale) || i18n.defaultLocale;
   const locale = locales[lang];
 

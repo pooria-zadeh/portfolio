@@ -32,7 +32,7 @@ export const MInput = memo(
                     {label && <MText variant="h6">{label}</MText>}
                     <InputWrapper
                         css={wrapperStyle}
-                        error={meta.touched && Boolean(error || meta?.error)}>
+                        error={meta?.touched && Boolean(error || meta?.error)}>
                         {StartAdornment && <StartAdornment />}
                         <InputComponent
                             ref={ref as any}

@@ -1,5 +1,5 @@
+import { getPaletteColor } from "@/theme/helper";
 import styled from "@emotion/styled";
-import { getPaletteColor } from "src/utils/theme/helper";
 
 export const FullWidthAbsSeprator = styled.div<
   AppBaseColorType & { color?: string }

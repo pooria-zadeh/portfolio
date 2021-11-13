@@ -4,6 +4,7 @@ import { Variants, Weights } from "@/theme/typographySettings";
 import { IconProps } from "src/assets/icons/SvgIcon";
 import { StyledComponent } from "@emotion/styled";
 import { breakpointsKeys } from "@/theme/breakpoint";
+import { CSSProperties } from "react";
 
 type Palette = keyof typeof themeObj["palette"];
 type Degree =
@@ -21,7 +22,7 @@ declare global {
   type ArrayOptionLoading = Array<AppOptions> | "loading";
 
   type AppCommonChild = { children: React.ReactNode };
-  
+
   type AppLocalization = {
     localization: Localization;
   };
@@ -49,4 +50,5 @@ declare global {
   type AppBreakpointKeys = keyof typeof breakpointsKeys;
 
   type AppStyledComponent<T> = StyledComponent<T>;
+  type AppStyle = CSSProperties;
 }

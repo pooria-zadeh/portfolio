@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useState } from "react";
+import React, { forwardRef, memo, useMemo, useState } from "react";
 import { useCallback } from "react";
 import { ArrowDownIcon } from "src/assets/icons/common/ArrowDownIcon";
 import { BSInput, CommonInputRoot, CommonInputWrapper } from "../input/styled";
@@ -66,7 +66,7 @@ const Menu = memo(({ options, onChange, nooptText }: MenuProps) => {
   return (
     <MenuContainer
       {...menuProps}
-    //   style={{ ...props.style, opacity: 1, pointerEvents: "all" }}
+      //   style={{ ...props.style, opacity: 1, pointerEvents: "all" }}
       role="menu"
       show={show}
     >
@@ -93,22 +93,6 @@ const Menu = memo(({ options, onChange, nooptText }: MenuProps) => {
     </MenuContainer>
   );
 });
-
-const InputWrapper = ({ children }) => {
-  const [props, { toggle }] = useDropdownToggle();
-
-  return (
-    <div
-      {...props}
-      onClick={() => {
-        toggle(false);
-      }}
-    >
-      {children}
-    </div>
-  );
-};
-const Input = styled(BSInput)({ display: "none" });
 
 const Toggle = ({
   label,
@@ -155,43 +139,48 @@ const Toggle = ({
 };
 
 export const Select = memo(
-  ({
-    SelectWrapperDiv = StyledSelectContainer,
-    onChange,
-    options,
-    nooptText,
-    inputProps,
+  forwardRef(
+    (
+      {
+        SelectWrapperDiv = StyledSelectContainer,
+        onChange,
+        options,
+        nooptText,
+        inputProps,
 
-    ...props
-  }: SelectProps) => {
-    const [show, setShow] = useState(false);
-    const onToggle = useCallback(() => {
-      setShow((prevProps) => !prevProps);
-    }, []);
+        ...props
+      }: SelectProps,
+      ref
+    ) => {
+      const [show, setShow] = useState(false);
+      const onToggle = useCallback(() => {
+        setShow((prevProps) => !prevProps);
+      }, []);
 
-    return (
-      <Dropdown
-        {...props}
-        show={show}
-        onToggle={onToggle}
-        itemSelector="button:not(:disabled)"
-      >
-        <SelectWrapperDiv>
-          <Toggle {...props} {...(inputProps as any)} />
-          <Menu
-            onChange={onChange}
-            options={options}
-            nooptText={nooptText}
-            {...props}
-          />
-        </SelectWrapperDiv>
-      </Dropdown>
-    );
-  }
+      return (
+        <Dropdown
+          {...props}
+          show={show}
+          onToggle={onToggle}
+          itemSelector="button:not(:disabled)"
+        >
+          <SelectWrapperDiv>
+            <Toggle {...props} {...(inputProps as any)} />
+            <Menu
+              onChange={onChange}
+              options={options}
+              nooptText={nooptText}
+              {...props}
+            />
+          </SelectWrapperDiv>
+        </Dropdown>
+      );
+    }
+  )
 );
 
 export const MSelectInput = memo(
-  ({ options, value, ...props }: SelectProps) => {
+  forwardRef(({ options, value, ...props }: SelectProps, ref) => {
     const selected: AppOptions = useMemo(() => {
       return typeof options === "object"
         ? options.find((option) => option.value === value) || {
@@ -201,55 +190,63 @@ export const MSelectInput = memo(
         : { option: "", value: "" };
     }, [value, options]);
 
-    return <Select {...props} options={options} {...selected} />;
-  }
+    return (
+      <Select {...props} options={options} {...selected} ref={ref as any} />
+    );
+  })
 );
 
 export const MSelectInputFormik = memo(
-  ({
-    form,
-    field,
-    options,
-    TypographyComponent,
-    SelectWrapperDiv,
-    ...rest
-  }: FieldProps<string> & SelectProps) => {
-    const onChange = useCallback(
-      (option) => {
-        form.setFieldValue(field.name, option.value);
-      },
-      [form, field]
-    );
+  forwardRef(
+    (
+      {
+        form,
+        field,
+        options,
+        TypographyComponent,
+        SelectWrapperDiv,
+        ...rest
+      }: FieldProps<string> & SelectProps,
+      ref
+    ) => {
+      const onChange = useCallback(
+        (option) => {
+          form.setFieldValue(field.name, option.value);
+        },
+        [form, field]
+      );
 
-    const selected: AppOptions = useMemo(() => {
-      return typeof options === "object"
-        ? options.find((option) => option.value === field.value) || {
-            option: "",
-            value: "",
-          }
-        : { option: "", value: "" };
-    }, [field, options]);
+      const selected: AppOptions = useMemo(() => {
+        return typeof options === "object"
+          ? options.find((option) => option.value === field.value) || {
+              option: "",
+              value: "",
+            }
+          : { option: "", value: "" };
+      }, [field, options]);
 
-    const meta = useMemo(() => {
-      return form.getFieldMeta(field.name);
-    }, [form, field]);
+      const meta = useMemo(() => {
+        return form.getFieldMeta(field.name);
+      }, [form, field]);
 
-    return (
-      <>
-        <Select
-          {...rest}
-          options={options}
-          name={field.name}
-          value={selected?.value}
-          option={selected?.option}
-          onChange={onChange}
-          TypographyComponent={TypographyComponent}
-          SelectWrapperDiv={SelectWrapperDiv}
-          onBlur={field.onBlur}
-        />
+      return (
+        <>
+          <Select
+            {...rest}
+            options={options}
+            name={field.name}
+            value={selected?.value}
+            option={selected?.option}
+            onChange={onChange}
+            TypographyComponent={TypographyComponent}
+            SelectWrapperDiv={SelectWrapperDiv}
+            onBlur={field.onBlur}
+            ref={ref as any}
+          />
 
-        <InputErrorText meta={meta} />
-      </>
-    );
-  }
+          <InputErrorText meta={meta} />
+        </>
+      );
+    }
+  )
 );

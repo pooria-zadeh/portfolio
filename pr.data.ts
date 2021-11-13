@@ -10,6 +10,10 @@ export const DATA = [
   { name: "codepen", value: "https://codepen.io/lordpooria" },
 ];
 
+export const LINKS  = {
+  unversity:"https://www.topuniversities.com/universities/university-tehran"
+}
+
 export const OBJECT_DATA = DATA.reduce(
   (acc, cur) => ({
     ...acc,

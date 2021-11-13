@@ -2,6 +2,7 @@ import { AcademicDataType } from "@/types/resume.type";
 
 const common = {
   pr: "Pooria Rajabzadeh",
+  gpa: "GPA",
   resume: {
     summary: {
       title: "Summary",
@@ -18,7 +19,7 @@ const common = {
         "Experienced design monorepos with yarn workspace",
         "Experienced in creating reusable modules",
         "Familiar with Azure and AWS",
-        "Familiar with classical Machine learning algorithems and statictics",
+        "Familiar with Machine learning algorithems and statictics",
       ],
     },
     techSkill: {
@@ -55,28 +56,107 @@ const common = {
           degree: "B.Sc in Electrical engineering",
           university: "University of Tehran,Iran",
           gpa: "16/20",
-          duration:"2011 - 2015"
+          duration: "2011 - 2015",
         },
         {
           degree: "M.Sc in Power Electrical engineering",
           university: "University of Tehran,Iran",
           gpa: "17/20",
-          duration:"2015 - 2017"
+          duration: "2015 - 2017",
         },
       ] as Array<AcademicDataType>,
     },
-  },
-  profExp: {
-    title: "Professional Experience",
-    list: [
-      {
-        title: "Nextjs Front End Developer",
-        company: "Apsy",
-        project: "Company Embark Website",
-        description: "This project introduce company",
-        link: " https://www.apsy.io/how-it-works",
-      },
-    ],
+    professional: {
+      title: "Professional Experience",
+      list: [
+        {
+          name: "Chime Beauty",
+          category: "Social media",
+          link: "http://mychimebeauty.com/",
+          technologies: [
+            "React",
+            "Next",
+            "SSR",
+            "Emotionjs",
+            "Material ui",
+            "Graphql",
+          ],
+          role: "Lead Developer with 2 other front developer",
+          duration: "2 Month",
+        },
+        {
+          name: "Volynt",
+          category: "Admin Panel",
+          link: "https://kind-coast-062757d1e.azurestaticapps.net/en/auth/login/",
+          users: [
+            { username: "manager@volynt.com", password: "123456" },
+            { username: "superadmin@volynt.com", password: "123456" },
+          ],
+          technologies: ["React", "Next", "SSG", "Emotionjs", "Graphql"],
+          role: "Lead Developer",
+          duration: "45 Days",
+        },
+        {
+          name: "Volynt",
+          category: "Admin Panel",
+          link: "https://kind-coast-062757d1e.azurestaticapps.net/en/auth/login/",
+          users: [
+            { username: "manager@volynt.com", password: "123456" },
+            { username: "superadmin@volynt.com", password: "123456" },
+          ],
+          technologies: ["React", "Next", "SSG", "Emotionjs", "Graphql"],
+          role: "Lead Developer",
+          duration: "50 Days",
+        },
+        {
+          name: "Apsy",
+          category: "Landing",
+          link: "https://www.apsy.io/how-it-works/",
+          users: [
+            { username: "manager@volynt.com", password: "123456" },
+            { username: "superadmin@volynt.com", password: "123456" },
+          ],
+          technologies: ["React", "Next", "ISR", "Graphql", "React-Spring"],
+          role: "Lead Developer",
+          duration: "120 Days",
+        },
+        {
+          name: "Knitnet",
+          category: "Admin Panel",
+          link: "https://vip.myknitnet.com/login",
+          users: [{ username: "demo", password: "demo123!@" }],
+          technologies: ["React", "CSR", "Material UI", "REST"],
+          role: "Senior Developer",
+          duration: "90 Days",
+        },
+        {
+          name: "Drag N Drop Analysis",
+          category: "Analysis Application",
+          link: "https://vip.myknitnet.com/login",
+          users: [{ username: "demo", password: "demo123!@" }],
+          technologies: ["React", "CSR", "Material UI"],
+          role: "Lead Developer",
+          duration: "60 Days",
+        },
+        {
+          name: "React Table and Map",
+          category: "React Library",
+          link: "https://vip.myknitnet.com/login",
+          users: [{ username: "demo", password: "demo123!@" }],
+          technologies: [
+            "React",
+            "Roleup",
+            "Lerna",
+            "Mdx Documentation",
+            "Story book",
+            "Material UI",
+            "React-window",
+          ],
+          role: "Lead Developer",
+          duration: "90 Days",
+        },
+      ],
+    },
   },
 };
 

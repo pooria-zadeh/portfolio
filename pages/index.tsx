@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Head from "next/head";
-import { useOnUserEnter } from "src/auth/useRedirectOnToken";
+import { useRouter } from "next/router";
+import { getInitialLocale } from "@/i18n/getInitialLocale";
 
 const Index: React.FC = () => {
-  useOnUserEnter();
+  const router = useRouter();
+  useEffect(() => {
+    router.push(`/${getInitialLocale()}/en`, undefined, { shallow: true });
+  }, []);
   return (
-    <Head>
-      <meta name="robots" content="noindex, nofollow" />
-    </Head>
+    <>
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
+    </>
   );
 };
 

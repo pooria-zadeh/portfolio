@@ -7,7 +7,7 @@ import { MRowView } from "@/components/base/view-container/Row";
 import useTranslation from "@/i18n/hooks/useTranslation";
 import { AcademicDataType } from "@/types/resume.type";
 import styled from "@emotion/styled";
-import { OBJECT_DATA } from "pr.data";
+import { LINKS, OBJECT_DATA } from "pr.data";
 import { Fragment } from "react";
 
 const Section = styled(MRowView)(({ theme }) => ({
@@ -121,24 +121,28 @@ export const IndexPageComponent = () => {
                 { degree, duration, gpa, university }: AcademicDataType,
                 idx: number
               ) => (
-                <SectionWithDuration key={idx} justifyContent="space-between">
-                  <div css={{ flex: 1, margin: "12px 0" }}>
-                    <MText span fontWeight="bold">
-                      {degree}
+                <div key={idx}>
+                  <SectionWithDuration justifyContent="space-between">
+                    <div css={{ flex: 1, margin: "12px 0" }}>
+                      <MText span fontWeight="bold">
+                        {degree}
+                      </MText>
+                      <BSHyperlink href={LINKS.unversity}>
+                        <MText span> ({university}) </MText>
+                      </BSHyperlink>
+                    </div>
+                    <MText
+                      fontWeight="light"
+                      css={{ alignSelf: "flex-end" }}
+                      span
+                    >
+                      {duration}
                     </MText>
-                    <MText span> ({university}) </MText>
-                  </div>
-                  <MText
-                    fontWeight="light"
-                    css={{ alignSelf: "flex-end" }}
-                    span
-                  >
-                    {duration}
+                  </SectionWithDuration>
+                  <MText fontWeight="light" variant="body2">
+                    {t("gpa")} {gpa}
                   </MText>
-                  <MText fontWeight="light" variant="caption">
-                    {gpa}
-                  </MText>
-                </SectionWithDuration>
+                </div>
               )
             )}
           </MUList>

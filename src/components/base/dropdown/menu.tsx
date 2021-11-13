@@ -6,6 +6,9 @@ import { MButton } from "../MButton";
 
 type MenuProps = AppCommonChild & {
   Icon: React.ReactNode;
+  ToggleComponent?: React.FC<any>;
+  MenuListComponent?: React.FC<any>;
+  MenuContainerComponent?: AppStyledComponent<any>;
 };
 
 export const MenuMenuContainer = styled.div<{ show: boolean }>(
@@ -13,22 +16,16 @@ export const MenuMenuContainer = styled.div<{ show: boolean }>(
     display: show ? "flex" : "none",
     zIndex: theme.zIndex.menu,
     transition: "box-shadow 03s ease",
-    
   })
 );
 
 const MenuListMenu = ({ children }: AppCommonChild) => {
-  const { show, props, close } = useDropdownMenu({
+  const [menuProps, { show }] = useDropdownMenu({
     flip: true,
     offset: [0, 24],
   });
   return (
-    <MenuMenuContainer
-      {...props}
-      style={{ ...props.style, opacity: 1, pointerEvents: "all" }}
-      role="menu"
-      show={show}
-    >
+    <MenuMenuContainer {...menuProps} role="menu" show={show}>
       {children}
     </MenuMenuContainer>
   );
@@ -44,7 +41,17 @@ const MenuToggle = ({ Icon }: { Icon: any }) => {
   );
 };
 
-export const MenuSelectInput = ({ Icon, ...props }: MenuProps) => {
+const BSMenuContainer = styled.div({
+  position: "relative",
+});
+export const MenuSelectInput = ({
+  Icon,
+  MenuContainerComponent = BSMenuContainer,
+  ToggleComponent = MenuToggle,
+  MenuListComponent = MenuListMenu,
+  children,
+  ...props
+}: MenuProps) => {
   const [show, setShow] = useState(false);
   const onToggle = useCallback(() => {
     setShow((prevProps) => !prevProps);
@@ -58,12 +65,10 @@ export const MenuSelectInput = ({ Icon, ...props }: MenuProps) => {
       onToggle={onToggle}
       itemSelector="button:not(:disabled)"
     >
-      {({ dp }: any) => (
-        <div {...dp} style={{ position: "relative" }}>
-          <MenuToggle Icon={Icon} />
-          <MenuListMenu>{props.children}</MenuListMenu>
-        </div>
-      )}
+      <MenuContainerComponent {...props}>
+        <ToggleComponent Icon={Icon} />
+        <MenuListComponent>{children}</MenuListComponent>
+      </MenuContainerComponent>
     </Dropdown>
   );
 };
