@@ -7,6 +7,7 @@ import { MRowView } from "@/components/base/view-container/Row";
 import useTranslation from "@/i18n/hooks/useTranslation";
 import { ProfessionDataType } from "@/types/resume.type";
 import styled from "@emotion/styled";
+import { Fragment } from "react";
 
 const DescriptionText = styled(MText)(({ theme }) => ({
   fontWeight: 100,
@@ -42,7 +43,7 @@ export const DescriptionBox = ({
           </>
         )}
         {testUsers?.map(({ password, username }) => (
-          <>
+          <Fragment key={username}>
             <MText variant="body3" fontWeight="semibold">
               {t("testUser")}:
             </MText>
@@ -60,7 +61,7 @@ export const DescriptionBox = ({
                 </MText>
               </MRowView>
             </MColumnView>
-          </>
+          </Fragment>
         ))}
       </FlatAccordion.Body>
     </FlatAccordion>

@@ -39,8 +39,9 @@ const TitleContainer = styled(MRowView)<AppBaseColorType & { open: boolean }>(
   })
 );
 const ToggleContainer = styled.div<{ open: boolean }>(({ open }) => ({
-  maxHeight: open ? 1200 : 0,
-  overflow: "hidden",
+  maxHeight: open ? 500 : 0,
+
+  overflow: open ? "auto" : "hidden",
   transition: "all 0.3s",
 }));
 

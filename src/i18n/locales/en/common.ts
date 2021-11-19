@@ -174,14 +174,14 @@ const common = {
           duration: "90 Days",
         },
         {
-          name: "Drag N Drop Analysis",
+          name: "Visual Query builder",
           category: "Analysis Application",
-          link: "https://vip.myknitnet.com/login",
+          link: "https://heuristic-lumiere-a191d3.netlify.app/",
           description: {
-            text: "",
+            text: "(!This project is not completed!) This is a visual query builder for non-technicals who want to work with data.",
           },
 
-          technologies: ["React", "CSR", "Material UI"],
+          technologies: ["React", "CSR", "Material UI", "redux"],
           role: "Lead Developer",
           duration: "60 Days",
         },
