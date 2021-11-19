@@ -7,7 +7,7 @@ import { getInitialLocale } from "@/i18n/getInitialLocale";
 const Index: React.FC = () => {
   const router = useRouter();
   useEffect(() => {
-    router.push(`/${getInitialLocale()}/en`, undefined, { shallow: true });
+    router.push(`/${getInitialLocale()}`, undefined, { shallow: true });
   }, []);
   return (
     <>

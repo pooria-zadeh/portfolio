@@ -1,8 +1,15 @@
-import { AcademicDataType } from "@/types/resume.type";
+import { AcademicDataType, ProfessionDataType } from "@/types/resume.type";
 
 const common = {
   pr: "Pooria Rajabzadeh",
   gpa: "GPA",
+  testUser: "Test User",
+  technologies: "Technologies",
+  role: "Role",
+  password: "Password",
+  username: "Username",
+  tryItWithTestUser:
+    "You could try the development environment of site with this test user",
   resume: {
     summary: {
       title: "Summary",
@@ -73,6 +80,9 @@ const common = {
           name: "Chime Beauty",
           category: "Social media",
           link: "http://mychimebeauty.com/",
+          description: {
+            text: "A social media progressive web app. This website implemented with nextjs on ssr mode, It has image optimization (server side) and compression (client side) and uses graphql apis with swr cache for state management.",
+          },
           technologies: [
             "React",
             "Next",
@@ -80,69 +90,64 @@ const common = {
             "Emotionjs",
             "Material ui",
             "Graphql",
+            "Azure",
+            "CI/CD",
           ],
-          role: "Lead Developer with 2 other front developer",
+          role: "Lead Developer with 2 other front developers",
           duration: "2 Month",
         },
+
         {
           name: "Volynt",
           category: "Admin Panel",
           link: "https://kind-coast-062757d1e.azurestaticapps.net/en/auth/login/",
-          users: [
-            { username: "manager@volynt.com", password: "123456" },
-            { username: "superadmin@volynt.com", password: "123456" },
+          description: {
+            text: "This is a admin panel with role base authorizaiton. All ui element implemented from scratch with emotionjs and api implemented with help of graphql and api state managed with swr and calls with optimistic updates, Each role has separate website so if you wanna see all pages you should try both user types.",
+            testUsers: [
+              { username: "manager@volynt.com", password: "123456" },
+              { username: "superadmin@volynt.com", password: "123456" },
+            ],
+          },
+
+          technologies: [
+            "React",
+            "Next",
+            "SSG",
+            "Emotionjs",
+            "Graphql",
+            "AWS",
+            "CI/CD",
           ],
-          technologies: ["React", "Next", "SSG", "Emotionjs", "Graphql"],
           role: "Lead Developer",
           duration: "45 Days",
         },
-        {
-          name: "Volynt",
-          category: "Admin Panel",
-          link: "https://kind-coast-062757d1e.azurestaticapps.net/en/auth/login/",
-          users: [
-            { username: "manager@volynt.com", password: "123456" },
-            { username: "superadmin@volynt.com", password: "123456" },
-          ],
-          technologies: ["React", "Next", "SSG", "Emotionjs", "Graphql"],
-          role: "Lead Developer",
-          duration: "50 Days",
-        },
+
         {
           name: "Apsy",
           category: "Landing",
           link: "https://www.apsy.io/how-it-works/",
-          users: [
-            { username: "manager@volynt.com", password: "123456" },
-            { username: "superadmin@volynt.com", password: "123456" },
+          description: {
+            text: "Embark is landing page of apsy which is a software company creating application using some automation processes. It has too many animation using react-spring and material ui help us as ui library.",
+          },
+          technologies: [
+            "React",
+            "Next",
+            "ISR",
+            "Graphql",
+            "React-Spring",
+            "Azure",
+            "CI/CD",
           ],
-          technologies: ["React", "Next", "ISR", "Graphql", "React-Spring"],
           role: "Lead Developer",
           duration: "120 Days",
         },
         {
-          name: "Knitnet",
-          category: "Admin Panel",
-          link: "https://vip.myknitnet.com/login",
-          users: [{ username: "demo", password: "demo123!@" }],
-          technologies: ["React", "CSR", "Material UI", "REST"],
-          role: "Senior Developer",
-          duration: "90 Days",
-        },
-        {
-          name: "Drag N Drop Analysis",
-          category: "Analysis Application",
-          link: "https://vip.myknitnet.com/login",
-          users: [{ username: "demo", password: "demo123!@" }],
-          technologies: ["React", "CSR", "Material UI"],
-          role: "Lead Developer",
-          duration: "60 Days",
-        },
-        {
           name: "React Table and Map",
           category: "React Library",
-          link: "https://vip.myknitnet.com/login",
-          users: [{ username: "demo", password: "demo123!@" }],
+          link: "https://cranky-snyder-0e6782.netlify.app/",
+          description: {
+            text: "A map, table and table-map library. Code is not pulicly available as company requested. Leaflet map library and react-window and also material ui are most important library used in this project and rollup help us bundle this project. Document is written in mdx format.",
+          },
           technologies: [
             "React",
             "Roleup",
@@ -155,7 +160,32 @@ const common = {
           role: "Lead Developer",
           duration: "90 Days",
         },
-      ],
+        {
+          name: "Knitnet",
+          category: "Admin Panel",
+          link: "https://vip.myknitnet.com/login",
+          description: {
+            text: "",
+            testUsers: [{ username: "demo", password: "demo123!@" }],
+          },
+
+          technologies: ["React", "CSR", "Material UI", "REST"],
+          role: "Senior Developer",
+          duration: "90 Days",
+        },
+        {
+          name: "Drag N Drop Analysis",
+          category: "Analysis Application",
+          link: "https://vip.myknitnet.com/login",
+          description: {
+            text: "",
+          },
+
+          technologies: ["React", "CSR", "Material UI"],
+          role: "Lead Developer",
+          duration: "60 Days",
+        },
+      ] as Array<ProfessionDataType>,
     },
   },
 };

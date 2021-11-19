@@ -5,10 +5,12 @@ import { Spacer } from "@/components/base/spacer";
 import { MContainerView } from "@/components/base/view-container/Container";
 import { MRowView } from "@/components/base/view-container/Row";
 import useTranslation from "@/i18n/hooks/useTranslation";
-import { AcademicDataType } from "@/types/resume.type";
+import { AcademicDataType, ProfessionDataType } from "@/types/resume.type";
 import styled from "@emotion/styled";
 import { LINKS, OBJECT_DATA } from "pr.data";
-import { Fragment } from "react";
+
+import { DescriptionBox } from "./cc.description";
+import { CsvUList } from "./cc.list";
 
 const Section = styled(MRowView)(({ theme }) => ({
   display: "grid",
@@ -25,8 +27,10 @@ const Section = styled(MRowView)(({ theme }) => ({
 const SectionTitle = styled(MText)(({ theme }) => ({
   textAlign: "right",
   fontWeight: 600,
+  marginTop: -16,
   [theme.breakpoints.down.sm]: {
     textAlign: "left",
+    marginTop: 0,
   },
 }));
 
@@ -35,7 +39,7 @@ const RightSection = styled.div(({ theme }) => ({
   border: "0px solid",
   borderLeftWidth: BORDER_W,
   position: "relative",
-  padding: 12,
+  padding: 16,
   margin: "0 12px",
   transition: "border 0.3s",
   [theme.breakpoints.down.sm]: {
@@ -63,8 +67,43 @@ const RightSection = styled.div(({ theme }) => ({
     },
   },
 }));
+const SubSection = styled(MRowView)({
+  margin: "8px 0",
+});
+
 const SectionWithDuration = styled(MRowView)({});
 
+const DataNDurationRow = ({
+  name,
+  subtitle,
+  link,
+  duration,
+}: {
+  name: string;
+  subtitle: string;
+  duration: string;
+  link?: string;
+}) => {
+  return (
+    <SectionWithDuration justifyContent="space-between">
+      <div css={{ flex: 1, margin: "12px 0" }}>
+        <MText span variant="h4" fontWeight="bold">
+          {name}
+        </MText>
+        {link ? (
+          <BSHyperlink href={link}>
+            <MText span> ({subtitle}) </MText>
+          </BSHyperlink>
+        ) : (
+          <MText span> ({subtitle}) </MText>
+        )}
+      </div>
+      <MText fontWeight="light" css={{ alignSelf: "flex-end" }} span>
+        {duration}
+      </MText>
+    </SectionWithDuration>
+  );
+};
 export const IndexPageComponent = () => {
   const { t } = useTranslation();
 
@@ -102,14 +141,7 @@ export const IndexPageComponent = () => {
       <Section>
         <SectionTitle>{t("resume.techSkill.title")}</SectionTitle>
         <RightSection>
-          <MUList>
-            {t("resume.techSkill.list").map((d: string, idx: number) => (
-              <Fragment key={idx}>
-                <MText span>{d}</MText>
-                <MText span>{", "}</MText>
-              </Fragment>
-            ))}
-          </MUList>
+          <CsvUList list={t("resume.techSkill.list")} />
         </RightSection>
       </Section>
       <Section>
@@ -122,23 +154,13 @@ export const IndexPageComponent = () => {
                 idx: number
               ) => (
                 <div key={idx}>
-                  <SectionWithDuration justifyContent="space-between">
-                    <div css={{ flex: 1, margin: "12px 0" }}>
-                      <MText span fontWeight="bold">
-                        {degree}
-                      </MText>
-                      <BSHyperlink href={LINKS.unversity}>
-                        <MText span> ({university}) </MText>
-                      </BSHyperlink>
-                    </div>
-                    <MText
-                      fontWeight="light"
-                      css={{ alignSelf: "flex-end" }}
-                      span
-                    >
-                      {duration}
-                    </MText>
-                  </SectionWithDuration>
+                  <DataNDurationRow
+                    name={degree}
+                    subtitle={university}
+                    link={LINKS.unversity}
+                    duration={duration}
+                  />
+
                   <MText fontWeight="light" variant="body2">
                     {t("gpa")} {gpa}
                   </MText>
@@ -146,6 +168,45 @@ export const IndexPageComponent = () => {
               )
             )}
           </MUList>
+        </RightSection>
+      </Section>
+
+      <Section>
+        <SectionTitle>{t("resume.professional.title")}</SectionTitle>
+        <RightSection>
+          {t("resume.professional.list").map(
+            (
+              {
+                name,
+                category,
+                link,
+                description,
+                technologies,
+                role,
+                duration,
+              }: ProfessionDataType,
+              idx: number
+            ) => (
+              <div key={idx} css={{ margin: "24px 0" }}>
+                <DataNDurationRow
+                  name={name}
+                  subtitle={category}
+                  duration={duration}
+                />
+
+                <SubSection>
+                  <MText span css={{marginRight:8 }}>{t("technologies")}:</MText>
+
+                  <CsvUList list={technologies} />
+                </SubSection>
+                <SubSection>
+                  <MText span css={{marginRight:8 }}>{t("role")}:</MText>
+                  <MText>{role}</MText>
+                </SubSection>
+                <DescriptionBox {...description} link={link} />
+              </div>
+            )
+          )}
         </RightSection>
       </Section>
     </MContainerView>
