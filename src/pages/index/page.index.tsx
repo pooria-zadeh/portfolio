@@ -8,6 +8,7 @@ import useTranslation from "@/i18n/hooks/useTranslation";
 import { AcademicDataType, ProfessionDataType } from "@/types/resume.type";
 import styled from "@emotion/styled";
 import { LINKS, OBJECT_DATA } from "pr.data";
+import { useEffect, useRef } from "react";
 
 import { DescriptionBox } from "./cc.description";
 import { CsvUList } from "./cc.list";
@@ -106,6 +107,7 @@ const DataNDurationRow = ({
 };
 export const IndexPageComponent = () => {
   const { t } = useTranslation();
+  
 
   return (
     <MContainerView maxWidth="md" css={{ padding: 4 }}>
@@ -187,7 +189,7 @@ export const IndexPageComponent = () => {
               }: ProfessionDataType,
               idx: number
             ) => (
-              <div key={idx} css={{ margin: "24px 0" }}>
+              <div key={idx} css={{ margin: "32px 0" }}>
                 <DataNDurationRow
                   name={name}
                   subtitle={category}
@@ -195,12 +197,16 @@ export const IndexPageComponent = () => {
                 />
 
                 <SubSection>
-                  <MText span css={{marginRight:8 }}>{t("technologies")}:</MText>
+                  <MText span css={{ marginRight: 8 }}>
+                    {t("technologies")}:
+                  </MText>
 
                   <CsvUList list={technologies} />
                 </SubSection>
                 <SubSection>
-                  <MText span css={{marginRight:8 }}>{t("role")}:</MText>
+                  <MText span css={{ marginRight: 8 }}>
+                    {t("role")}:
+                  </MText>
                   <MText>{role}</MText>
                 </SubSection>
                 <DescriptionBox {...description} link={link} />

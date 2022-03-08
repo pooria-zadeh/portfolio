@@ -11,6 +11,7 @@ export const BSFlatAccordion = styled(MColumnView)<AppBaseColorType>(
     borderColor: getPaletteColor({ palette, degree }),
     borderRadius: theme.shape.borderRadius.medium,
     padding: 8,
+    wordBreak:"break-word"
   })
 );
 

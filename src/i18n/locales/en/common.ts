@@ -16,7 +16,7 @@ const common = {
       list: [
         "4+ years React, freelancer and team worker",
         "2+ years Nextjs Developer, Working with ssg/isr, next/image, ...",
-        "2+ years React native Developer, Experinced writing native module in android java",
+        "2+ years React native Developer, Experienced writing native module in android java",
         "Solid understanding of functional and object oriented programming in javascript and python",
         "1+ years Nodejs developer, Implement api with REST and Graphql technologies",
         "Master in creating mobile-first and responsive websites",
@@ -26,7 +26,7 @@ const common = {
         "Experienced design monorepos with yarn workspace",
         "Experienced in creating reusable modules",
         "Familiar with Azure and AWS",
-        "Familiar with Machine learning algorithems and statictics",
+        "Familiar with Machine learning algorithms and statistics",
       ],
     },
     techSkill: {
@@ -77,6 +77,26 @@ const common = {
       title: "Professional Experience",
       list: [
         {
+          name: "Digikala",
+          category: "e-commerce",
+          link: "https://www.digikala.com/",
+          description: {
+            text: "Digikala is the biggest e-commerce company in Iran, I work in the commercial team on seller panel and also maintain and develop core packages.",
+          },
+          technologies: [
+            "jQuery",
+            "React",
+            "Typescript",
+            "Next",
+            "SSR",
+            "SCSS",
+            "Webpack",
+            "Rollup"
+          ],
+          role: "Senior front-end developer work in a team with more than 500 engineers.",
+          duration: "5 Months",
+        },
+        {
           name: "Chime Beauty",
           category: "Social media",
           link: "http://mychimebeauty.com/",
@@ -94,7 +114,7 @@ const common = {
             "CI/CD",
           ],
           role: "Lead Developer with 2 other front developers",
-          duration: "2 Month",
+          duration: "3 Months",
         },
 
         {
@@ -102,7 +122,7 @@ const common = {
           category: "Admin Panel",
           link: "https://kind-coast-062757d1e.azurestaticapps.net/en/auth/login/",
           description: {
-            text: "This is a admin panel with role base authorizaiton. All ui element implemented from scratch with emotionjs and api implemented with help of graphql and api state managed with swr and calls with optimistic updates, Each role has separate website so if you wanna see all pages you should try both user types.",
+            text: "This is a admin panel with role base authorization. All ui element implemented from scratch with emotionjs and api implemented with help of graphql and api state managed with swr and calls with optimistic updates, Each role has separate website so if you wanna see all pages you should try both user types.",
             testUsers: [
               { username: "manager@volynt.com", password: "123456" },
               { username: "superadmin@volynt.com", password: "123456" },
@@ -119,7 +139,7 @@ const common = {
             "CI/CD",
           ],
           role: "Lead Developer",
-          duration: "45 Days",
+          duration: "3 Months",
         },
 
         {
@@ -127,7 +147,7 @@ const common = {
           category: "Landing",
           link: "https://www.apsy.io/how-it-works/",
           description: {
-            text: "Embark is landing page of apsy which is a software company creating application using some automation processes. It has too many animation using react-spring and material ui help us as ui library.",
+            text: "Embark is landing page of the Apsy which is a software company creating application using some automation processes. It has too many animation using react-spring and material ui help us as ui library.",
           },
           technologies: [
             "React",
@@ -139,14 +159,14 @@ const common = {
             "CI/CD",
           ],
           role: "Lead Developer",
-          duration: "120 Days",
+          duration: "5 Months",
         },
         {
           name: "React Table and Map",
           category: "React Library",
           link: "https://cranky-snyder-0e6782.netlify.app/",
           description: {
-            text: "A map, table and table-map library. Code is not pulicly available as company requested. Leaflet map library and react-window and also material ui are most important library used in this project and rollup help us bundle this project. Document is written in mdx format.",
+            text: "A map, table and table-map library. Code is not publicly available as company requested. Leaflet map library and react-window and also material ui are most important library used in this project and rollup help us bundle this project. Document is written in mdx format.",
           },
           technologies: [
             "React",
@@ -158,7 +178,7 @@ const common = {
             "React-window",
           ],
           role: "Lead Developer",
-          duration: "90 Days",
+          duration: "4 Months",
         },
         {
           name: "Knitnet",
@@ -171,19 +191,19 @@ const common = {
 
           technologies: ["React", "CSR", "Material UI", "REST"],
           role: "Senior Developer",
-          duration: "90 Days",
+          duration: "6 Months",
         },
         {
           name: "Visual Query builder",
           category: "Analysis Application",
           link: "https://heuristic-lumiere-a191d3.netlify.app/",
           description: {
-            text: "(!This project is not completed!) This is a visual query builder for non-technicals who want to work with data.",
+            text: "(!This project is not completed!) This is a visual query builder for non-technical who want to work with data.",
           },
 
           technologies: ["React", "CSR", "Material UI", "redux"],
           role: "Lead Developer",
-          duration: "60 Days",
+          duration: "2 Months",
         },
       ] as Array<ProfessionDataType>,
     },

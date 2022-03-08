@@ -8,7 +8,9 @@ export const MUList = styled.ul({
 export const MUListItem = styled.li({
     
   "&:before": {
-    content: "'-'",
+    content: "'_'",
     float: 'left',
+    marginRight:12,
+    fontWeight:700
   },
 });
