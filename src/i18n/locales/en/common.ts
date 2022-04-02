@@ -8,6 +8,9 @@ const common = {
   role: "Role",
   password: "Password",
   username: "Username",
+  linkedin:"LinkedIn",
+  stackoverflow:"Stack Overflow",
+  
   tryItWithTestUser:
     "You could try the development environment of site with this test user",
   resume: {

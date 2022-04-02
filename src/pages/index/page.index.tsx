@@ -9,6 +9,10 @@ import { AcademicDataType, ProfessionDataType } from "@/types/resume.type";
 import styled from "@emotion/styled";
 import { LINKS, OBJECT_DATA } from "pr.data";
 import { useEffect, useRef } from "react";
+import {
+  LinkedInIcon,
+  StackoverflowIcon,
+} from "src/assets/icons/common/socialMediaIcon";
 
 import { DescriptionBox } from "./cc.description";
 import { CsvUList } from "./cc.list";
@@ -107,7 +111,6 @@ const DataNDurationRow = ({
 };
 export const IndexPageComponent = () => {
   const { t } = useTranslation();
-  
 
   return (
     <MContainerView maxWidth="md" css={{ padding: 4 }}>
@@ -127,6 +130,16 @@ export const IndexPageComponent = () => {
           </MText>
         </BSHyperlink>
       </MText>
+
+      <MRowView>
+        <BSHyperlink href={`${LINKS.linkedin}`}>
+          <LinkedInIcon />
+        </BSHyperlink>
+        <BSHyperlink href={`${LINKS.stackoverflow}`}>
+          <StackoverflowIcon />
+        </BSHyperlink>
+      </MRowView>
+
       <Spacer vert={32} />
       <Section>
         <SectionTitle>{t("resume.summary.title")}</SectionTitle>
