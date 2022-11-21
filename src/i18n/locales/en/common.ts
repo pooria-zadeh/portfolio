@@ -17,9 +17,9 @@ const common = {
     summary: {
       title: "Summary",
       list: [
-        "4+ years React, freelancer and team worker",
-        "2+ years Nextjs Developer, Working with ssg/isr, next/image, ...",
-        "2+ years React native Developer, Experienced writing native module in android java",
+        "5+ years React, freelancer and team worker",
+        "3+ years Nextjs Developer, Working with ssg/isr, next/image, ...",
+        "2 years React native Developer, Experienced writing native module in android java",
         "Solid understanding of functional and object oriented programming in javascript and python",
         "1+ years Nodejs developer, Implement api with REST and Graphql technologies",
         "Master in creating mobile-first and responsive websites",
@@ -94,10 +94,11 @@ const common = {
             "SSR",
             "SCSS",
             "Webpack",
-            "Rollup"
+            "Rollup",
+            "Advance Forms"
           ],
           role: "Senior front-end developer work in a team with more than 500 engineers.",
-          duration: "5 Months",
+          duration: "12 Months",
         },
         {
           name: "Chime Beauty",
@@ -148,7 +149,7 @@ const common = {
         {
           name: "Apsy",
           category: "Landing",
-          link: "https://www.apsy.io/how-it-works/",
+          link: "https://www.apsy.io/",
           description: {
             text: "Embark is landing page of the Apsy which is a software company creating application using some automation processes. It has too many animation using react-spring and material ui help us as ui library.",
           },
@@ -160,6 +161,7 @@ const common = {
             "React-Spring",
             "Azure",
             "CI/CD",
+            "Complex Animation"
           ],
           role: "Lead Developer",
           duration: "5 Months",
