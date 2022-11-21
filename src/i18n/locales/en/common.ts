@@ -183,7 +183,7 @@ const common = {
             "React-window",
           ],
           role: "Lead Developer",
-          duration: "4 Months",
+          duration: "6 Months",
         },
         {
           name: "Knitnet",
@@ -196,7 +196,7 @@ const common = {
 
           technologies: ["React", "CSR", "Material UI", "REST"],
           role: "Senior Developer",
-          duration: "6 Months",
+          duration: "12 Months",
         },
         {
           name: "Visual Query builder",
