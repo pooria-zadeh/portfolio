@@ -1,4 +1,4 @@
-import React from "react";
+import { PropsWithChildren, createContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { isLocale, Localization, Locale } from "./types";
@@ -18,7 +18,7 @@ interface ContextProps {
   readonly setLocale: (localization: Localization) => void;
 }
 
-export const LanguageContext = React.createContext<ContextProps>({
+export const LanguageContext = createContext<ContextProps>({
   localization: {
     direction: "ltr",
     locale: "en", // default lang
@@ -34,13 +34,13 @@ export const LanguageContext = React.createContext<ContextProps>({
  * Language Context: Provider
  */
 
-export const LanguageProvider: React.FC<{ localization: Localization }> = ({
+export const LanguageProvider = ({
   localization,
   children,
-}) => {
+}: PropsWithChildren<{ localization: Localization }>) => {
   const init = useRef(true);
 
-  const [localizationState, setLocalizationState] = React.useState({
+  const [localizationState, setLocalizationState] = useState({
     locale: localization?.locale,
     translations: localization?.translations,
     namespaces: localization?.namespaces,
@@ -49,13 +49,14 @@ export const LanguageProvider: React.FC<{ localization: Localization }> = ({
 
   const { query } = useRouter();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (localizationState.locale !== getStoredLocale) {
       setStoredLocale(localizationState.locale);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [localizationState]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (
       typeof query.lang === "string" &&
       isLocale(query.lang) &&
@@ -68,6 +69,7 @@ export const LanguageProvider: React.FC<{ localization: Localization }> = ({
         namespaces: localization?.namespaces,
       });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query.lang, localizationState]);
 
   return (

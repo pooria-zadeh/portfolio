@@ -5,24 +5,41 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["es6", "es2020", "DOM"],
+    "lib": [
+      "es6",
+      "es2020",
+      "DOM"
+    ],
     "moduleResolution": "node",
     "noEmit": true,
     "strict": true,
     "target": "esnext",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["src/components/*"],
-      "@/i18n/*": ["src/i18n/*"],
-      "@/layout/*": ["src/layout/*"],
-      "@/theme/*": ["src/theme/*"],
-      "@/utils/*": ["src/utils/*"],
-      "@/types/*": ["src/@types/*"]
+      "@/components/*": [
+        "src/components/*"
+      ],
+      "@/i18n/*": [
+        "src/i18n/*"
+      ],
+      "@/layout/*": [
+        "src/layout/*"
+      ],
+      "@/theme/*": [
+        "src/theme/*"
+      ],
+      "@/utils/*": [
+        "src/utils/*"
+      ],
+      "@/types/*": [
+        "src/@types/*"
+      ]
     },
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "incremental": true
   },
   "exclude": [
     "node_modules",
@@ -30,6 +47,13 @@
     "metro.config.js",
     "jest.config.js"
   ],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "typeRoots": ["./node_modules/@types/", "./src/@types/"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "typeRoots": [
+    "./node_modules/@types/",
+    "./src/@types/"
+  ]
 }

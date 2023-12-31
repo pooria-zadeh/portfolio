@@ -29,7 +29,7 @@ export function graphqlFetcher<T extends QueryType>(
 ) {
   return new Promise<T["res"]>(async (resolve, reject) => {
     try {
-      const res = await client.request(GQL, args);
+      const res = await client.request(GQL, args) as any;
 
       //token expired || no token exist
       const authFail = Object.keys(res).some(

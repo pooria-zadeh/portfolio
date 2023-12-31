@@ -1,4 +1,4 @@
-import jwtDecode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import { FirebaseToken } from "@/types/graphql.type";
 
 export const isTokenExpired = (token: string | undefined): boolean => {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -8,6 +8,7 @@ const Index: React.FC = () => {
   const router = useRouter();
   useEffect(() => {
     router.push(`/${getInitialLocale()}`, undefined, { shallow: true });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>

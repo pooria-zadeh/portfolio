@@ -210,7 +210,7 @@ export const MSelectInputFormik = memo(
       ref
     ) => {
       const onChange = useCallback(
-        (option) => {
+        (option: any) => {
           form.setFieldValue(field.name, option.value);
         },
         [form, field]
