@@ -73,7 +73,7 @@ const common = {
       list: [
         {
           name: "Tali.ai",
-          category: "SaaS",
+          category: "AI Healthcare",
           link: "https://tali.ai/",
           description: {
             text: "Worked on monorepo contains Desktop, chrome-extension, SDK and react-native mobile app with a team of size 14 developers. I was owner of writing e2e tests with playwright and the owner of website migration to next.js 13.\n I worked with the team to move code to nx monorepo.\nI Worked on analytics with Segment and Mixpanel and GCP.",
@@ -113,7 +113,7 @@ const common = {
 
         {
           name: "Digikala",
-          category: "e-commerce",
+          category: "E-commerce",
           link: "https://www.digikala.com/",
           description: {
             text: "Digikala which is known as the biggest online shop company and it also has the biggest tech team in Iran. I worked with team of size 100 developers. I mostly worked on refactoring jQuery code to React.js and also maintaining the core UI library. I also participate on technical code interviews and hiring procedure. ",
@@ -155,7 +155,7 @@ const common = {
 
         {
           name: "Apsy",
-          category: "Landing",
+          category: "AI-Driven App Builder",
           link: "https://www.apsy.io/",
           description: {
             text: "I was owner of developing company website with next.js in ISR mode. Website  has some challenging animations including scroll animation.",

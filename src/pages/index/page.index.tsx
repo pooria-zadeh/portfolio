@@ -126,7 +126,10 @@ export const IndexPageComponent = () => {
         {/** Could Put {image} here */}
         <MContainerView>
           <MText variant="h4" fontWeight="bold">
-            {t("pr")} <MText span fontWeight="medium">({t("title")})</MText>
+            {t("pr")}{" "}
+            <MText span fontWeight="medium">
+              ({t("title")})
+            </MText>
           </MText>
           <MText>
             <BSHyperlink href={`tel:${OBJECT_DATA.tel}`}>
@@ -157,12 +160,10 @@ export const IndexPageComponent = () => {
         <SectionTitle>{t("resume.summary.title")}</SectionTitle>
         <RightSection>
           <MLineText>{t("resume.summary.content")}</MLineText>
-          {typeof window !== "undefined" &&
-          window.location.href.startsWith("https") ? null : (
-            <BSHyperlink href="https://portfolio-prajabzadeh92-gmailcom.vercel.app/en">
-              <MText fontWeight="bold">{t("resume.summary.linkTitle")}</MText>
-            </BSHyperlink>
-          )}
+
+          <BSHyperlink href="https://portfolio-prajabzadeh92-gmailcom.vercel.app/en">
+            <MText fontWeight="bold">{t("resume.summary.linkTitle")}</MText>
+          </BSHyperlink>
           <br />
           <BSHyperlink href="https://resume.io/r/9JXN6CbPn">
             <MText fontWeight="bold">{t("resume.summary.resumeLink")}</MText>
