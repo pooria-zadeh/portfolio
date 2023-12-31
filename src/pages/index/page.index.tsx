@@ -1,14 +1,18 @@
+import Image from "next/image";
+import styled from "@emotion/styled";
+
 import { BSHyperlink } from "@/components/base/MButton/styled";
-import { MUList, MUListItem } from "@/components/base/MList/styled";
+import { MUList } from "@/components/base/MList/styled";
 import { MText } from "@/components/base/MText";
 import { Spacer } from "@/components/base/spacer";
-import { MContainerView } from "@/components/base/view-container/Container";
+import {
+  MContainerView,
+  MFlexContainerView,
+} from "@/components/base/view-container/Container";
 import { MRowView } from "@/components/base/view-container/Row";
 import useTranslation from "@/i18n/hooks/useTranslation";
 import { AcademicDataType, ProfessionDataType } from "@/types/resume.type";
-import styled from "@emotion/styled";
 import { LINKS, OBJECT_DATA } from "pr.data";
-import { useEffect, useRef } from "react";
 import {
   LinkedInIcon,
   StackoverflowIcon,
@@ -28,6 +32,10 @@ const Section = styled(MRowView)(({ theme }) => ({
     gridTemplateColumns: "1fr",
   },
 }));
+
+const MLineText = styled(MText)({
+  whiteSpace: "break-spaces",
+});
 
 const SectionTitle = styled(MText)(({ theme }) => ({
   textAlign: "right",
@@ -114,43 +122,53 @@ export const IndexPageComponent = () => {
 
   return (
     <MContainerView maxWidth="md" css={{ padding: 4 }}>
-      <MText variant="h4" fontWeight="bold">
-        {t("pr")}
-      </MText>
-      <MText>
-        <BSHyperlink href={`tel:${OBJECT_DATA.tel}`}>
-          <MText span variant="body2" fontWeight="bold">
-            {OBJECT_DATA.tel}
+      <MFlexContainerView>
+        {/** Could Put {image} here */}
+        <MContainerView>
+          <MText variant="h4" fontWeight="bold">
+            {t("pr")} <MText span fontWeight="medium">({t("title")})</MText>
           </MText>
-        </BSHyperlink>
-        <MText span>{" | "}</MText>
-        <BSHyperlink href={`mailto:${OBJECT_DATA.mail}`}>
-          <MText span variant="body2">
-            {OBJECT_DATA.mail}
+          <MText>
+            <BSHyperlink href={`tel:${OBJECT_DATA.tel}`}>
+              <MText span variant="body2" fontWeight="bold">
+                {OBJECT_DATA.tel}
+              </MText>
+            </BSHyperlink>
+            <MText span>{" | "}</MText>
+            <BSHyperlink href={`mailto:${OBJECT_DATA.mail}`}>
+              <MText span variant="body2">
+                {OBJECT_DATA.mail}
+              </MText>
+            </BSHyperlink>
           </MText>
-        </BSHyperlink>
-      </MText>
 
-      <MRowView>
-        <BSHyperlink href={`${LINKS.linkedin}`}>
-          <LinkedInIcon />
-        </BSHyperlink>
-        <BSHyperlink href={`${LINKS.stackoverflow}`}>
-          <StackoverflowIcon />
-        </BSHyperlink>
-      </MRowView>
-
+          <MRowView>
+            <BSHyperlink href={`${LINKS.linkedin}`}>
+              <LinkedInIcon />
+            </BSHyperlink>
+            <BSHyperlink href={`${LINKS.stackoverflow}`}>
+              <StackoverflowIcon />
+            </BSHyperlink>
+          </MRowView>
+        </MContainerView>
+      </MFlexContainerView>
       <Spacer vert={32} />
       <Section>
         <SectionTitle>{t("resume.summary.title")}</SectionTitle>
         <RightSection>
-          <MUList>
-            {t("resume.summary.list").map((d: string, idx: number) => (
-              <MUListItem key={idx}>
-                <MText>{d}</MText>
-              </MUListItem>
-            ))}
-          </MUList>
+          <MLineText>{t("resume.summary.content")}</MLineText>
+          {typeof window !== "undefined" &&
+          window.location.href.startsWith("https") ? null : (
+            <BSHyperlink href="https://portfolio-prajabzadeh92-gmailcom.vercel.app/en">
+              <MText fontWeight="bold">{t("resume.summary.linkTitle")}</MText>
+            </BSHyperlink>
+          )}
+          <br />
+          <BSHyperlink href="https://resume.io/r/9JXN6CbPn">
+            <MText fontWeight="bold">{t("resume.summary.resumeLink")}</MText>
+          </BSHyperlink>
+          <br />
+          <br />
         </RightSection>
       </Section>
       <Section>
@@ -168,7 +186,7 @@ export const IndexPageComponent = () => {
                 { degree, duration, gpa, university }: AcademicDataType,
                 idx: number
               ) => (
-                <div key={idx}>
+                <div key={`academic-${idx}`}>
                   <DataNDurationRow
                     name={degree}
                     subtitle={university}
@@ -202,7 +220,7 @@ export const IndexPageComponent = () => {
               }: ProfessionDataType,
               idx: number
             ) => (
-              <div key={idx} css={{ margin: "32px 0" }}>
+              <div key={`professional-${idx}`} css={{ margin: "32px 0" }}>
                 <DataNDurationRow
                   name={name}
                   subtitle={category}
