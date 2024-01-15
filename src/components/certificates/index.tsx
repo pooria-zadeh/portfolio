@@ -1,9 +1,21 @@
 import Image from "next/image";
-import { MFlexContainerView } from "../base/view-container/Container";
 import { RightSection, Section, SectionTitle } from "../styled";
 import { Spacer } from "../base/spacer";
 import useTranslation from "@/i18n/hooks/useTranslation";
 import { useMemo } from "react";
+import styled from "@emotion/styled";
+import { MRowView } from "../base/view-container/Row";
+
+const ImageContainer = styled.div({
+  minHeight: 400,
+  aspectRatio: 600 / 460,
+  overflow: "hidden",
+  position: "relative",
+  "@media (max-width: 600px)": {
+    width: "100%",
+    minHeight: "unset",
+  },
+});
 
 export const CertificatesSection = () => {
   const { t } = useTranslation();
@@ -15,13 +27,15 @@ export const CertificatesSection = () => {
     <Section>
       <SectionTitle>{t("resume.certificates.title")}</SectionTitle>
       <RightSection>
-        <MFlexContainerView alignItems="center" justifyContent="center" wrap>
-          <div style={{ ...size, overflow: "hidden", position: "relative" }}>
-            <Image fill alt="IBM" src={"/certificates/ibm.png"} />
-          </div>
+        <MRowView alignItems="center" justifyContent="center" wrap="true">
+          <ImageContainer>
+            <Image alt="IBM" src={"/certificates/ibm.png"} fill />
+          </ImageContainer>
           <Spacer hori={3} vert={4} />
-          <Image alt="IBM" src={"/certificates/sharif.png"} {...size} />
-        </MFlexContainerView>
+          <ImageContainer>
+            <Image alt="IBM" src={"/certificates/sharif.png"} fill />
+          </ImageContainer>
+        </MRowView>
       </RightSection>
     </Section>
   );
