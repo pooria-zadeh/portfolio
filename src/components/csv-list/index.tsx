@@ -2,7 +2,7 @@ import { MUList } from "@/components/base/MList/styled";
 import { MText } from "@/components/base/MText";
 import { Fragment } from "react";
 
-export const CsvUList = ({ list }: { list: Array<string> }) => {
+export const CSVUList = ({ list }: { list: Array<string> }) => {
   return (
     <MUList>
       {list.map((d: string, idx: number) => (

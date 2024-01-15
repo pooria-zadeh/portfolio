@@ -19,6 +19,12 @@ const common = {
       title: "Summary",
       content:
         "I'm 5+ years frontend developer working on React(-Native) Framework working on more than 10 projects. I'm self-learner and motivated.\n\nI have lead experience in a front-end team with 4 other developers.\nI have master degree in electrical engineering and I know how to research and write article in university. And also learned python and how to creating machine learning models.\n\n",
+      dataContent: `I'm 5+ years frontend developer working on React(-Native) Framework working on more than 10 projects. I'm self-learner and motivated.
+
+I have academic background and got master degree in electrical engineering.    
+I love data and got certificate on data analytics. I have solid understanding of python and know how to create machine learning models.
+
+`,
       linkTitle: "Portfolio Website",
       resumeLink: "Resume Link",
     },
@@ -47,10 +53,15 @@ const common = {
         "Cypress",
         "Python",
         "Machine Learning",
-        "Adobe Illustrator",
-        "Adobe XD",
+        "Numpy",
+        "Pandas",
+        "Scikit Learn",
       ],
     },
+    certificates: {
+      title:"Certificate"
+    },
+
     academic: {
       title: "Academic Qualification",
       list: [

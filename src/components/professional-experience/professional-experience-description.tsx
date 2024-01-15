@@ -1,7 +1,6 @@
 import { FlatAccordion } from "@/components/base/dropdown/accordion.flat";
 import { BSHyperlink } from "@/components/base/MButton/styled";
 import { MText } from "@/components/base/MText";
-import { Spacer } from "@/components/base/spacer";
 import { MColumnView } from "@/components/base/view-container/Column";
 import { MRowView } from "@/components/base/view-container/Row";
 import useTranslation from "@/i18n/hooks/useTranslation";
@@ -56,7 +55,7 @@ const Tooltip = styled("div")<{ text: string }>(({ text }) => ({
   },
 }));
 
-export const DescriptionBox = ({
+export const ProfessionalExperienceDescription = ({
   text,
   testUsers,
   link,

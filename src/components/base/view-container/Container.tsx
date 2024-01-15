@@ -14,12 +14,14 @@ export interface FlexViewProps extends ContainerProps {
     alignSelf?: Property.AlignSelf;
     justifyContent?: Property.JustifyContent;
     w?: number;
+    wrap?:boolean
 }
 
 export const MFlexContainerView = styled.div<FlexViewProps>(
-    ({ theme, alignItems, justifyContent, alignSelf, w, maxWidth }) => ({
+    ({ theme, alignItems, justifyContent, alignSelf, w, maxWidth,wrap }) => ({
         display: 'flex',
         ...(alignItems && { alignItems }),
+        ...(wrap && { flexWrap:'wrap' }),
         ...(justifyContent && { justifyContent }),
         ...(alignSelf && { alignSelf }),
         ...(w && { width: w }),

@@ -12,14 +12,20 @@ import { ContactsTopSection } from "@/components/contacts";
 import { SkillSetSection } from "@/components/skillset";
 import { SummarySection } from "@/components/summary";
 
+import { CertificatesSection } from "@/components/certificates";
+
 const Page = () => {
   const { t } = useTranslation();
   return (
     <MContainerView maxWidth="md" css={{ padding: 4 }}>
       <ContactsTopSection />
-      <SummarySection description={t("resume.summary.content")} />
+      <SummarySection
+        description={t("resume.summary.dataContent")}
+        href="https://portfolio-prajabzadeh92-gmailcom.vercel.app/en/data"
+      />
 
       <SkillSetSection />
+      <CertificatesSection />
       <AcademicSection />
 
       <ProfessionalExperience />
