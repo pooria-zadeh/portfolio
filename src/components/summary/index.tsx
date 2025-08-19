@@ -17,13 +17,13 @@ export const SummarySection = ({
       <RightSection>
         <MLineText>{description}</MLineText>
 
-        <BSHyperlink href={href}>
+        {/* <BSHyperlink href={href}>
           <MText fontWeight="bold">{t("resume.summary.linkTitle")}</MText>
         </BSHyperlink>
         <br />
         <BSHyperlink href="https://resume.io/r/9JXN6CbPn">
           <MText fontWeight="bold">{t("resume.summary.resumeLink")}</MText>
-        </BSHyperlink>
+        </BSHyperlink> */}
         <br />
         <br />
       </RightSection>

@@ -49,6 +49,7 @@ const ToggleContainer = styled.div<{ open: boolean }>(({ open }) => ({
 type Props = {
   WrapperComponent?: AppStyledComponent<any>;
   children: Array<JSX.Element>;
+  initialOpen?: boolean;
 };
 
 const AccordionProvider = createContext(
@@ -62,8 +63,9 @@ export const FlatAccordion = ({
   children,
 
   WrapperComponent = BSFlatAccordion,
+  initialOpen = false,
 }: Props) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(initialOpen);
 
   return (
     <AccordionProvider.Provider value={{ open, setOpen }}>

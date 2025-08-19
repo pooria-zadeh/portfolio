@@ -83,6 +83,25 @@ I love data and got certificate on data analytics. I have solid understanding of
       title: "Professional Experience",
       list: [
         {
+          name: "TRT", 
+          category: "News",
+          link: "https://trt.global/",
+          description: {
+            text: "Led development of a multilingual website across 45 content channels using Next.js, delivering core features, optimizing performance (25% smaller bundles, +10 Lighthouse SEO score), and implementing SSR to boost indexing. Built end-to-end test coverage reducing QA regression, automated translation workflows cutting manual effort by 60%, and integrated analytics to track engagement KPIs. Introduced Storybook to streamline UI validation, accelerating QA cycles.",
+          },
+          technologies: [
+            "Next.js",
+            "React",
+            "Typescript",
+            "Tailwind",
+            "PayloadCMS",
+            "tiptap",
+            "Google Analytics",
+          ],
+          role: "Senior Software Developer",
+          duration: "1 Year",
+        },
+        {
           name: "Tali.ai",
           category: "AI Healthcare",
           link: "https://tali.ai/",
@@ -221,7 +240,7 @@ I love data and got certificate on data analytics. I have solid understanding of
 
           technologies: ["React", "CSR", "Material UI", "REST"],
           role: "Senior Developer",
-          duration: "12 Months",
+          duration: "6 Months",
         },
         {
           name: "Visual Query builder",

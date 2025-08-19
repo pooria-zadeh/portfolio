@@ -59,8 +59,10 @@ export const ProfessionalExperienceDescription = ({
   text,
   testUsers,
   link,
+  initialOpen = false,
 }: ProfessionDataType["description"] & {
   link: ProfessionDataType["link"];
+  initialOpen?: boolean;
 }) => {
   const { t } = useTranslation();
   const ctrlPressed = useRef(false);
@@ -82,7 +84,7 @@ export const ProfessionalExperienceDescription = ({
     };
   }, []);
   return (
-    <FlatAccordion>
+    <FlatAccordion initialOpen={initialOpen}>
       <FlatAccordion.Title>
         <BSHyperlink
           css={{ flex: 1 }}

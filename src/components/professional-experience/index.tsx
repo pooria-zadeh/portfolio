@@ -61,7 +61,11 @@ export const ProfessionalExperience = () => {
                 </MText>
                 <MText>{role}</MText>
               </SubSection>
-              <ProfessionalExperienceDescription {...description} link={link} />
+              <ProfessionalExperienceDescription
+                {...description}
+                link={link}
+                initialOpen={idx === 0}
+              />
             </div>
           )
         )}
