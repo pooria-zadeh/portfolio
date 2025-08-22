@@ -27,7 +27,7 @@ export const ContactsTopSection = () => {
             </MText>
           </MText>
           <MText>
-            <BSHyperlink href={`tel:${OBJECT_DATA.tel}`}>
+            <BSHyperlink href={`https://wa.me/${OBJECT_DATA.tel}`}>
               <MText span variant="body2" fontWeight="bold">
                 {OBJECT_DATA.tel}
               </MText>
