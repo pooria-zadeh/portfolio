@@ -1,0 +1,418 @@
+{
+  "$comment": "Feature ledger for the portfolio site. Every user-facing capability is one entry. Statuses: planned → in-progress → done. A feature is 'done' only when every acceptance line is verified by at least one automated test tagged with its id (e.g. `@F-003` in tests/e2e/*.spec.ts or `[@F-003]` in a Vitest test name). tests/unit/feature-list.test.ts enforces this. Keep ids stable; append new features at the end.",
+  "project": "portfolio",
+  "version": 1,
+  "viewports": {
+    "mobile-s": {
+      "width": 320,
+      "height": 568
+    },
+    "mobile": {
+      "width": 375,
+      "height": 812
+    },
+    "mobile-l": {
+      "width": 430,
+      "height": 932
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024
+    },
+    "laptop": {
+      "width": 1280,
+      "height": 800
+    },
+    "desktop": {
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  "features": [
+    {
+      "id": "F-001",
+      "area": "foundation",
+      "title": "Static export build",
+      "description": "The site builds with `output: 'export'` into out/ and runs from any static host (GitHub Pages) with no Node server.",
+      "status": "done",
+      "acceptance": [
+        "`npm run build` produces out/index.html, out/robots.txt, out/sitemap.xml and the résumé PDF",
+        "out/ contains a .nojekyll marker so GitHub Pages serves the _next/ directory",
+        "No server-only APIs (headers, cookies, dynamic routes without generateStaticParams) are used"
+      ],
+      "viewports": [],
+      "tests": [
+        "@F-001"
+      ]
+    },
+    {
+      "id": "F-002",
+      "area": "layout",
+      "title": "Sticky header with primary navigation",
+      "description": "Fixed header with a monogram + name link, section links, theme toggle and a Résumé button. Gains a translucent blurred background once the page is scrolled.",
+      "status": "done",
+      "acceptance": [
+        "Header is visible at the top of every viewport and stays fixed while scrolling",
+        "Desktop navigation (`nav[aria-label=\"Primary\"]`) is visible at ≥768px and hidden below",
+        "Every nav link points at an existing section id",
+        "Résumé button links to the PDF in public/"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "laptop",
+        "desktop"
+      ],
+      "tests": [
+        "@F-002"
+      ]
+    },
+    {
+      "id": "F-003",
+      "area": "layout",
+      "title": "Mobile menu",
+      "description": "Below 768px the nav collapses into a hamburger button that opens a full-width menu panel.",
+      "status": "done",
+      "acceptance": [
+        "Toggle button has an accessible name and `aria-expanded` that reflects state",
+        "Menu panel (`#mobile-menu`) is hidden until opened and lists every section link",
+        "Choosing a link closes the menu and navigates to the section",
+        "Escape closes the menu and returns focus to the toggle",
+        "Body scroll is locked while the menu is open"
+      ],
+      "viewports": [
+        "mobile-s",
+        "mobile",
+        "mobile-l"
+      ],
+      "tests": [
+        "@F-003"
+      ]
+    },
+    {
+      "id": "F-004",
+      "area": "theme",
+      "title": "Dark / light theme toggle",
+      "description": "Dark by default (matching the reference), with a toggle that persists the choice in localStorage and respects `prefers-color-scheme` on first visit. No flash of wrong theme on load.",
+      "status": "done",
+      "acceptance": [
+        "`html[data-theme]` is `dark` or `light`; first visit follows the OS preference",
+        "Clicking the toggle flips the theme and updates the button's accessible name",
+        "The choice survives a reload",
+        "All colors come from CSS custom properties so both themes are complete"
+      ],
+      "viewports": [
+        "mobile",
+        "desktop"
+      ],
+      "tests": [
+        "@F-004"
+      ]
+    },
+    {
+      "id": "F-005",
+      "area": "hero",
+      "title": "Hero",
+      "description": "Eyebrow (role · location), gradient display name, one-line pitch, availability badge, two CTAs (view work / get in touch), a stats row and a scroll cue.",
+      "status": "done",
+      "acceptance": [
+        "h1 is the person's name and fits inside the viewport at every breakpoint",
+        "CTAs link to #work and #contact",
+        "Stats row renders every figure from src/data/hero.ts and wraps to 2 columns on mobile"
+      ],
+      "viewports": [
+        "mobile-s",
+        "mobile",
+        "tablet",
+        "laptop",
+        "desktop"
+      ],
+      "tests": [
+        "@F-005"
+      ]
+    },
+    {
+      "id": "F-006",
+      "area": "about",
+      "title": "About section",
+      "description": "Numbered section (01) with a one-sentence headline, the résumé summary, and a focus-areas card.",
+      "status": "done",
+      "acceptance": [
+        "Section has id `about` and the numbered eyebrow 'Profile'",
+        "Focus areas list renders every item from src/data/about.ts",
+        "Two-column layout on ≥1024px collapses to one column below"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "tests": [
+        "@F-006"
+      ]
+    },
+    {
+      "id": "F-007",
+      "area": "experience",
+      "title": "Experience timeline",
+      "description": "Numbered section (02) with one card per role: title, company, dates, location, bullet achievements and tech chips; the current role carries a 'Current' badge.",
+      "status": "done",
+      "acceptance": [
+        "Every role in src/data/experience.ts is rendered in order with its bullets",
+        "The role flagged `current` shows a Current badge",
+        "Tech chips wrap without horizontal overflow on 320px"
+      ],
+      "viewports": [
+        "mobile-s",
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "tests": [
+        "@F-007"
+      ]
+    },
+    {
+      "id": "F-008",
+      "area": "projects",
+      "title": "Selected work",
+      "description": "Numbered section (03) with a card per project: kind label, status badge, title, description, outcomes and stack chips; external links open in a new tab.",
+      "status": "done",
+      "acceptance": [
+        "Every project in src/data/projects.ts renders as a card",
+        "External links use target=_blank and rel=noreferrer",
+        "Grid is 1 column on mobile and 2 columns on ≥768px"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "tests": [
+        "@F-008"
+      ]
+    },
+    {
+      "id": "F-009",
+      "area": "skills",
+      "title": "Skills & education",
+      "description": "Numbered section (04) with grouped skill chips (from the résumé's Core Skills), education entries and languages.",
+      "status": "done",
+      "acceptance": [
+        "Every skill group and every chip in src/data/skills.ts renders",
+        "Education and languages render from src/data/education.ts",
+        "Groups flow 1 → 2 → 4 columns across mobile → tablet → desktop"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "tests": [
+        "@F-009"
+      ]
+    },
+    {
+      "id": "F-010",
+      "area": "contact",
+      "title": "Contact",
+      "description": "Numbered section (05) with a call-to-action card: headline, email link, 'Send a message' mailto button and social icon links.",
+      "status": "done",
+      "acceptance": [
+        "Email link and button both use `mailto:` with the address from src/data/site.ts",
+        "Social links (GitHub, LinkedIn, Stack Overflow) have accessible names",
+        "Card stacks vertically on mobile"
+      ],
+      "viewports": [
+        "mobile",
+        "desktop"
+      ],
+      "tests": [
+        "@F-010"
+      ]
+    },
+    {
+      "id": "F-011",
+      "area": "layout",
+      "title": "Footer",
+      "description": "Copyright with the current year, a 'Built with Next.js · deployed on GitHub Pages' line and social icon links.",
+      "status": "done",
+      "acceptance": [
+        "Footer is a `<footer>` landmark containing the current year and the name",
+        "Social links have accessible names and rel=noreferrer"
+      ],
+      "viewports": [
+        "mobile",
+        "desktop"
+      ],
+      "tests": [
+        "@F-011"
+      ]
+    },
+    {
+      "id": "F-012",
+      "area": "motion",
+      "title": "Scroll reveals and smooth scrolling",
+      "description": "Sections fade-and-rise into view once; Lenis smooth scrolling on pointer devices. Both collapse to static when `prefers-reduced-motion: reduce`.",
+      "status": "done",
+      "acceptance": [
+        "Reveal wrappers (`[data-reveal]`) reach opacity 1 after scrolling into view",
+        "With reduced motion every reveal is fully visible immediately and Lenis is not started",
+        "Header active-state and theme transitions are also disabled under reduced motion"
+      ],
+      "viewports": [
+        "mobile",
+        "desktop"
+      ],
+      "tests": [
+        "@F-012"
+      ]
+    },
+    {
+      "id": "F-013",
+      "area": "responsive",
+      "title": "No horizontal overflow at any breakpoint",
+      "description": "The page never scrolls horizontally and no element extends past the viewport edge from 320px to 1920px wide.",
+      "status": "done",
+      "acceptance": [
+        "`document.documentElement.scrollWidth` ≤ viewport width at every viewport in feature_list.json",
+        "No visible element's bounding box exceeds the viewport's right edge",
+        "Side gutter is at least 16px on mobile",
+        "Interactive header controls are at least 40×40px on mobile"
+      ],
+      "viewports": [
+        "mobile-s",
+        "mobile",
+        "mobile-l",
+        "tablet",
+        "laptop",
+        "desktop"
+      ],
+      "tests": [
+        "@F-013"
+      ]
+    },
+    {
+      "id": "F-014",
+      "area": "a11y",
+      "title": "Accessibility baseline",
+      "description": "Skip link, landmark structure, labelled controls, visible focus rings, and zero serious/critical axe violations in both themes.",
+      "status": "done",
+      "acceptance": [
+        "First Tab stop is a 'Skip to content' link targeting #main",
+        "Exactly one `<main>`; header, nav and footer landmarks present",
+        "axe-core reports no serious or critical violations at mobile and desktop widths in dark and light themes"
+      ],
+      "viewports": [
+        "mobile",
+        "desktop"
+      ],
+      "tests": [
+        "@F-014"
+      ]
+    },
+    {
+      "id": "F-015",
+      "area": "seo",
+      "title": "Metadata, Open Graph, robots, sitemap and JSON-LD",
+      "description": "Title/description from site data, Open Graph and Twitter cards, robots.txt, sitemap.xml and a schema.org Person record.",
+      "status": "done",
+      "acceptance": [
+        "`<title>` contains the name and role; meta description is non-empty",
+        "og:title, og:description and twitter:card are present",
+        "A `script[type=\"application/ld+json\"]` parses to a schema.org Person with the name and sameAs links",
+        "/robots.txt and /sitemap.xml are served from the export"
+      ],
+      "viewports": [],
+      "tests": [
+        "@F-015"
+      ]
+    },
+    {
+      "id": "F-016",
+      "area": "layout",
+      "title": "Active section highlighting (scrollspy)",
+      "description": "The nav link for the section currently in view carries `aria-current=\"true\"` and a visual indicator.",
+      "status": "done",
+      "acceptance": [
+        "Scrolling to a section marks its nav link with aria-current=true and no other link",
+        "Uses IntersectionObserver, not scroll handlers, so it stays cheap"
+      ],
+      "viewports": [
+        "desktop"
+      ],
+      "tests": [
+        "@F-016"
+      ]
+    },
+    {
+      "id": "F-017",
+      "area": "content",
+      "title": "Résumé download",
+      "description": "The résumé PDF in public/ is reachable from the header button and the contact section.",
+      "status": "done",
+      "acceptance": [
+        "`a[data-testid=\"resume-link\"]` exists in the header and the href returns HTTP 200 with a PDF content type",
+        "The link has a download-friendly label"
+      ],
+      "viewports": [
+        "mobile",
+        "desktop"
+      ],
+      "tests": [
+        "@F-017"
+      ]
+    },
+    {
+      "id": "F-018",
+      "area": "content",
+      "title": "Single-source content with no placeholders",
+      "description": "All copy lives in src/data/*.ts. Shipped data contains no TODO/placeholder strings, and every nav link resolves to a declared section.",
+      "status": "done",
+      "acceptance": [
+        "No `TODO(`, `[Placeholder` or `lorem` strings anywhere in src/data",
+        "Email is a valid address; every external link is https",
+        "Every role has ≥1 bullet and ≥1 chip; every project has a stack; every skill group is non-empty",
+        "Nav links are exactly the declared sections, in order"
+      ],
+      "viewports": [],
+      "tests": [
+        "@F-018"
+      ]
+    },
+    {
+      "id": "F-019",
+      "area": "tooling",
+      "title": "CI and GitHub Pages deployment",
+      "description": "Pull requests run lint, typecheck, unit tests, build and the Playwright suite; pushes to main deploy out/ to GitHub Pages.",
+      "status": "done",
+      "acceptance": [
+        ".github/workflows/ci.yml runs on pull_request and push and uploads the Playwright report",
+        ".github/workflows/deploy-pages.yml builds and deploys out/ with actions/deploy-pages",
+        "Both workflows use `npm ci` so exact pins are honoured"
+      ],
+      "viewports": [],
+      "tests": [
+        "@F-019"
+      ]
+    },
+    {
+      "id": "F-020",
+      "area": "ui",
+      "title": "Consistent section chrome",
+      "description": "Every section shares the same heading pattern: a dotted mono eyebrow, a two-digit index (01–05) and a display-font title.",
+      "status": "done",
+      "acceptance": [
+        "Sections about, experience, work, skills, contact render indices 01–05 in order",
+        "Each section's `<h2>` matches the title declared in src/data/site.ts"
+      ],
+      "viewports": [
+        "mobile",
+        "desktop"
+      ],
+      "tests": [
+        "@F-020"
+      ]
+    }
+  ]
+}

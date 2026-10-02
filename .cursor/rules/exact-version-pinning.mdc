@@ -1,0 +1,42 @@
+---
+description: Require exact version pinning in manifest files to reduce supply-chain risk
+alwaysApply: true
+---
+
+# Exact Version Pinning
+
+Pin every dependency to an exact version in every manifest. Floating ranges
+let a compromised upstream release (a hijacked npm package) land in installs
+silently. Exact pins force every version change to be an explicit,
+reviewable edit.
+
+(Carried over from tali-central's rule of the same name.)
+
+## Always Pin
+
+- Never introduce `^`, `~`, `>=`, `>`, `<`, `*`, `latest`, `next`, git/tag
+  refs, or any unbounded range when adding or modifying a dependency.
+- When bumping a dependency, change the pinned version explicitly and update
+  the lockfile in the same commit so the version change is reviewed.
+- Keep `package-lock.json` committed and current. The lockfile alone is not
+  sufficient because it is regenerated whenever the manifest changes.
+
+## Applies To
+
+- `package.json`: `dependencies`, `devDependencies`, `optionalDependencies`,
+  `overrides`.
+
+## Do Not Change
+
+- `engines.node` and other runtime/compatibility constraints — these are
+  not installed at resolve time.
+
+## Examples
+
+```json
+// Good
+"framer-motion": "13.1.1"
+
+// Bad
+"framer-motion": "^13.1.1"
+```

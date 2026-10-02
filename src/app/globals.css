@@ -1,26 +1,138 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* `dark:` utilities key off html[data-theme="dark"], not the OS setting. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* ---------- Theme tokens (dark is the default; light overrides) ---------- */
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0b0b10;
+  --bg-2: #0d0d14;
+  --fg: #f8fafc;
+  --secondary: #94a3b8;
+  --muted: #1b1b24;
+  --card: #12121a;
+  --border: #1e293b;
+  --accent: #3b82f6;
+  --accent-2: #22d3ee;
+  --on-accent: #04070d;
+  --ring: #60a5fa;
+  --nav: rgba(11, 11, 16, 0.78);
+  --grid-line: rgba(148, 163, 184, 0.07);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 0 1px rgba(59, 130, 246, 0.35), 0 0 24px rgba(59, 130, 246, 0.25);
+  --nav-height: 4.25rem;
 }
 
+[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f8fafc;
+  --bg-2: #f1f5f9;
+  --fg: #0f172a;
+  --secondary: #475569;
+  --muted: #e2e8f0;
+  --card: #ffffff;
+  --border: #cbd5e1;
+  --accent: #2563eb;
+  --accent-2: #0891b2;
+  --on-accent: #ffffff;
+  --ring: #2563eb;
+  --nav: rgba(248, 250, 252, 0.82);
+  --grid-line: rgba(15, 23, 42, 0.06);
+  --shadow-card: 0 4px 24px rgba(15, 23, 42, 0.06);
+  --shadow-glow: 0 0 0 1px rgba(37, 99, 235, 0.25), 0 0 24px rgba(37, 99, 235, 0.18);
+}
+
+/* ---------- Tailwind theme mapping ---------- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-fg: var(--fg);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-on-accent: var(--on-accent);
+  --color-nav: var(--nav);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --shadow-card: var(--shadow-card);
+  --shadow-glow: var(--shadow-glow);
+
+  --animate-bounce-slow: bounce-slow 2.4s ease-in-out infinite;
+  @keyframes bounce-slow {
+    0%,
+    100% {
+      transform: translate(-50%, 0);
+    }
+    50% {
+      transform: translate(-50%, 6px);
+    }
   }
 }
 
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 1rem);
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Utilities ---------- */
+.text-gradient {
+  color: var(--fg); /* contrast-safe fallback; the gradient paints over it */
+  background-image: linear-gradient(100deg, var(--fg) 0%, var(--accent-2) 55%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ---------- Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  /* Reveal wrappers are server-rendered at opacity 0; React hydration keeps
+     server attributes, so the reduced-motion override must live in CSS. */
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,0 +1,66 @@
+import type { Role } from './types';
+
+/** Mirrors PROFESSIONAL EXPERIENCE in public/Pooria-Rajabzadeh-Resume.pdf. */
+export const experience: Role[] = [
+  {
+    company: 'Tali.ai',
+    title: 'Senior Software Developer',
+    tagline: 'AI-assisted clinical documentation platform',
+    start: 'Apr 2023',
+    end: 'Present',
+    current: true,
+    href: 'https://tali.ai',
+    bullets: [
+      'Drove platform reliability with the core engineering team through tens of production incidents — root-cause analysis, fixes and postmortems — cutting repeat authentication failures by roughly 70%.',
+      'Built the observability layer for authentication and session flows — custom structured logging, BigQuery dashboards and threshold alerts posted into a dedicated Slack channel — cutting detection of user-facing sign-in failures from hours of support tickets to minutes.',
+      'Turned ad-hoc escalations into a repeatable incident process — alert routing, triage ownership and follow-up tracking — shortening average time to resolution by about 45%.',
+      'Use Claude Code, Cursor and Codex daily for generation, refactoring, test writing and prototyping, and built the internal tooling, rules and prompt library that made the workflow repeatable team-wide — cutting typical feature turnaround by around 35%.',
+      'Shipped AI-assisted code review into GitHub Actions, screening every pull request for security and code-quality issues before human review, and authored Cursor rules encoding the design system so generated UI stays on-system and designers can contribute working interface code.',
+      'Migrated the platform to Next.js 15 across every breaking change with no customer-facing downtime, cutting first contentful paint by 50%.',
+      'Built the product applications on an Nx monorepo with Storybook, Playwright coverage and the Segment/Mixpanel analytics pipeline, and moved the marketing site to Webflow so content ships without engineering time.',
+    ],
+    stack: [
+      'Next.js 15',
+      'TypeScript',
+      'Nx',
+      'Storybook',
+      'Playwright',
+      'BigQuery',
+      'GitHub Actions',
+      'Segment',
+      'Mixpanel',
+      'Claude Code',
+      'Cursor',
+    ],
+  },
+  {
+    company: 'Digikala',
+    title: 'Frontend Developer',
+    tagline: 'E-commerce marketplace',
+    start: 'Apr 2021',
+    end: 'Apr 2023',
+    href: 'https://www.digikala.com',
+    bullets: [
+      'Refactored a legacy jQuery product serving 10M users to React, cutting page load time by 40% and removing the recurring downtime the old stack produced.',
+      'Built an internal component library with Rollup and tree shaking, reducing shared bundle size by about 25% across consuming products.',
+      'Documented the library in Storybook and drove adoption across multiple product teams, standardizing UI patterns in a large multi-team engineering organization with shared release processes.',
+    ],
+    stack: ['React', 'Rollup', 'Storybook', 'jQuery → React migration'],
+  },
+  {
+    company: 'Apsy.io',
+    title: 'Front-end Developer',
+    tagline: 'Automated app-building platform',
+    start: 'May 2019',
+    end: 'Dec 2021',
+    href: 'https://apsy.io',
+    bullets: [
+      'Developed a Flask service that automated UI code generation, and supported the AI team by extracting and formatting Adobe XD files into structured JSON.',
+      "Created the platform's Azure CI/CD release pipeline, replacing manual releases with a repeatable automated process.",
+      'Shipped a project boilerplate that cut new-project start-up time by 30%.',
+      'Built the company website in Next.js with incremental static regeneration, extensive animation work and an embedded Adobe XD preview.',
+      "Designed the online coding interview and offline exam used in the company's hiring process.",
+    ],
+    stack: ['Next.js', 'ISR', 'Flask', 'Python', 'Azure Pipelines', 'Adobe XD'],
+  },
+];

@@ -1,0 +1,23 @@
+---
+description: Index of Cursor rules for this repo
+alwaysApply: false
+---
+
+# Rules Index
+
+Adapted from the tali-central monorepo's rule stack for this single-app
+portfolio repo. Use this file as the entrypoint.
+
+## Core (Always Loaded)
+
+- `code-style.md` — TypeScript/React conventions for the Next.js app.
+- `exact-version-pinning.mdc` — exact dependency pins, no floating ranges.
+
+## On Demand
+
+- `pull-request-conventions.md` — PR title format and body expectations.
+
+## Review
+
+- `../BUGBOT.md` — priorities and repo-specific review guidance used by
+  the `code-review` skill before every PR.
