@@ -3,7 +3,9 @@
 Personal portfolio: a single-page, **statically exported** Next.js site
 (App Router, TypeScript, Tailwind CSS 4, Framer Motion, Lenis), modelled on
 the layout of https://omidbadkoubeh.github.io/ and deployed to GitHub Pages.
-Dark theme by default with a light toggle.
+Dark theme ("Nocturne": plum-charcoal, saffron → rose accent) by default,
+light theme ("Daybreak": warm paper, burnt gold → raspberry) via the toggle.
+Type: Fraunces (display serif), Manrope (body), IBM Plex Mono (labels).
 
 ## Commands
 

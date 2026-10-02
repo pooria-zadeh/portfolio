@@ -4,44 +4,48 @@
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 /* ---------- Theme tokens (dark is the default; light overrides) ---------- */
+/* "Nocturne": plum-charcoal ground, saffron → rose accent. */
 :root,
 [data-theme='dark'] {
   color-scheme: dark;
-  --bg: #0b0b10;
-  --bg-2: #0d0d14;
-  --fg: #f8fafc;
-  --secondary: #94a3b8;
-  --muted: #1b1b24;
-  --card: #12121a;
-  --border: #1e293b;
-  --accent: #3b82f6;
-  --accent-2: #22d3ee;
-  --on-accent: #04070d;
-  --ring: #60a5fa;
-  --nav: rgba(11, 11, 16, 0.78);
-  --grid-line: rgba(148, 163, 184, 0.07);
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.35);
-  --shadow-glow: 0 0 0 1px rgba(59, 130, 246, 0.35), 0 0 24px rgba(59, 130, 246, 0.25);
+  --bg: #100e14;
+  --bg-2: #15121b;
+  --fg: #f3eefa;
+  --secondary: #a89fb8;
+  --muted: #231d2d;
+  --card: #1a1622;
+  --border: #2b2535;
+  --accent: #f2b84b;
+  --accent-2: #e0659a;
+  --on-accent: #1a1208;
+  --success: #7ed3b2;
+  --ring: #f2b84b;
+  --nav: rgba(16, 14, 20, 0.78);
+  --grid-line: rgba(168, 159, 184, 0.07);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 0 1px rgba(242, 184, 75, 0.35), 0 0 28px rgba(242, 184, 75, 0.22);
   --nav-height: 4.25rem;
 }
 
+/* "Daybreak": warm paper ground, burnt-gold → raspberry accent. */
 [data-theme='light'] {
   color-scheme: light;
-  --bg: #f8fafc;
-  --bg-2: #f1f5f9;
-  --fg: #0f172a;
-  --secondary: #475569;
-  --muted: #e2e8f0;
-  --card: #ffffff;
-  --border: #cbd5e1;
-  --accent: #2563eb;
-  --accent-2: #0891b2;
-  --on-accent: #ffffff;
-  --ring: #2563eb;
-  --nav: rgba(248, 250, 252, 0.82);
-  --grid-line: rgba(15, 23, 42, 0.06);
-  --shadow-card: 0 4px 24px rgba(15, 23, 42, 0.06);
-  --shadow-glow: 0 0 0 1px rgba(37, 99, 235, 0.25), 0 0 24px rgba(37, 99, 235, 0.18);
+  --bg: #faf6f1;
+  --bg-2: #f3ede4;
+  --fg: #1f1a26;
+  --secondary: #5f576b;
+  --muted: #ede5da;
+  --card: #fffdf9;
+  --border: #e3d9cc;
+  --accent: #9a5d12;
+  --accent-2: #b0325f;
+  --on-accent: #fffdf9;
+  --success: #1f7a5a;
+  --ring: #9a5d12;
+  --nav: rgba(250, 246, 241, 0.82);
+  --grid-line: rgba(31, 26, 38, 0.06);
+  --shadow-card: 0 4px 24px rgba(31, 26, 38, 0.06);
+  --shadow-glow: 0 0 0 1px rgba(154, 93, 18, 0.25), 0 0 28px rgba(154, 93, 18, 0.16);
 }
 
 /* ---------- Tailwind theme mapping ---------- */
@@ -56,11 +60,12 @@
   --color-accent: var(--accent);
   --color-accent-2: var(--accent-2);
   --color-on-accent: var(--on-accent);
+  --color-success: var(--success);
   --color-nav: var(--nav);
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-space-grotesk), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --shadow-card: var(--shadow-card);
   --shadow-glow: var(--shadow-glow);
@@ -95,6 +100,12 @@ body {
   background: color-mix(in srgb, var(--accent) 35%, transparent);
 }
 
+/* Fraunces: tighter, slightly soft optical settings for display sizes. */
+.font-display {
+  font-variation-settings: 'opsz' 144, 'SOFT' 30, 'WONK' 0;
+  letter-spacing: -0.02em;
+}
+
 :focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
@@ -104,7 +115,7 @@ body {
 /* ---------- Utilities ---------- */
 .text-gradient {
   color: var(--fg); /* contrast-safe fallback; the gradient paints over it */
-  background-image: linear-gradient(100deg, var(--fg) 0%, var(--accent-2) 55%, var(--accent) 100%);
+  background-image: linear-gradient(100deg, var(--fg) 0%, var(--accent) 48%, var(--accent-2) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

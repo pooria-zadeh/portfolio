@@ -21,14 +21,14 @@ export function Hero() {
             <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_12px_var(--accent)]" />
             {hero.eyebrow}
           </p>
-          <h1 className="text-gradient font-display text-[clamp(2.6rem,10vw,6.5rem)] leading-[0.95] font-bold tracking-tight text-balance">
+          <h1 className="text-gradient font-display text-[clamp(2.7rem,10vw,6.75rem)] leading-[0.98] font-semibold text-balance">
             {site.name}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-secondary text-pretty sm:text-xl">{hero.pitch}</p>
           <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3.5 py-1.5 font-mono text-xs text-secondary">
             <span aria-hidden className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60 motion-reduce:hidden" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-60 motion-reduce:hidden" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
             </span>
             {hero.availability}
           </p>

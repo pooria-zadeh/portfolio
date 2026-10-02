@@ -49,8 +49,8 @@ export function Experience() {
                       {role.start} — {role.end}
                     </span>
                     {role.current && (
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2.5 py-0.5 text-[10px] tracking-wide text-emerald-300 uppercase dark:text-emerald-300 [html[data-theme=light]_&]:text-emerald-700">
-                        <span aria-hidden className="h-1 w-1 rounded-full bg-emerald-400" />
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-success/40 bg-success/10 px-2.5 py-0.5 text-[10px] tracking-wide text-success uppercase">
+                        <span aria-hidden className="h-1 w-1 rounded-full bg-success" />
                         Current
                       </span>
                     )}

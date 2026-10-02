@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
+import { Fraunces, IBM_Plex_Mono, Manrope } from 'next/font/google';
 import { SkipLink } from '@/components/layout/SkipLink';
 import { SmoothScroll } from '@/components/ui/SmoothScroll';
 import { SITE_URL, site } from '@/data/site';
@@ -7,9 +7,19 @@ import { personJsonLd } from '@/lib/json-ld';
 import { themeBootstrapScript } from '@/lib/theme';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk', display: 'swap' });
-const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains-mono', display: 'swap' });
+const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope', display: 'swap' });
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-fraunces',
+  display: 'swap',
+  axes: ['opsz', 'SOFT', 'WONK'],
+});
+const plexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-plex-mono',
+  display: 'swap',
+});
 
 const TITLE = `${site.name} — ${site.shortRole}`;
 
@@ -35,14 +45,14 @@ export const viewport: Viewport = {
   initialScale: 1,
   colorScheme: 'dark light',
   themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#0b0b10' },
-    { media: '(prefers-color-scheme: light)', color: '#f8fafc' },
+    { media: '(prefers-color-scheme: dark)', color: '#100e14' },
+    { media: '(prefers-color-scheme: light)', color: '#faf6f1' },
   ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${manrope.variable} ${fraunces.variable} ${plexMono.variable}`}>
       <body className="min-h-svh bg-bg font-sans text-fg antialiased">
         {/* Constant, build-time strings — no user input reaches either script. */}
         <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
