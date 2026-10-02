@@ -19,11 +19,11 @@ Two workflows:
 
 | Repo name | URL | `basePath` |
 | --- | --- | --- |
-| `<user>.github.io` | `https://<user>.github.io/` | none (current setup) |
-| anything else | `https://<user>.github.io/<repo>/` | `basePath: '/<repo>'` |
+| `<user>.github.io` | `https://<user>.github.io/` | none |
+| anything else | `https://<user>.github.io/<repo>/` | `basePath: '/<repo>'` — **current setup**: `pooria-zadeh/portfolio` → `/portfolio` |
 
-For a project site set `NEXT_PUBLIC_BASE_PATH=/<repo>` in the deploy
-workflow; `next.config.ts` reads it into `basePath`/`assetPrefix`, and
+`deploy-pages.yml` sets `NEXT_PUBLIC_BASE_PATH=/portfolio` and
+`NEXT_PUBLIC_SITE_URL`; `next.config.ts` reads it into `basePath`/`assetPrefix`, and
 `src/lib/paths.ts → withBasePath()` must wrap any hand-written `/public`
 URL (the résumé link does this).
 

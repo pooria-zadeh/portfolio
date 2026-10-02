@@ -1,11 +1,11 @@
 import type { NavItem, SectionMeta, SocialLink } from './types';
 
 /**
- * Production origin for metadata, robots and the sitemap. Defaults to the
- * GitHub Pages user site for the GitHub account in `site.links`; override
- * with NEXT_PUBLIC_SITE_URL when a custom domain exists.
+ * Production URL for metadata, robots and the sitemap. Defaults to the
+ * GitHub Pages project site this repo deploys to; override with
+ * NEXT_PUBLIC_SITE_URL when a custom domain exists.
  */
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://lordpooria.github.io').replace(/\/$/, '');
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://pooria-zadeh.github.io/portfolio').replace(/\/$/, '');
 
 export const site = {
   name: 'Pooria Rajabzadeh',

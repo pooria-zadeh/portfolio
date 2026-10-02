@@ -26,8 +26,10 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          # For a project site (https://<user>.github.io/<repo>/) set this to "/<repo>".
-          NEXT_PUBLIC_BASE_PATH: ""
+          # Project site: https://pooria-zadeh.github.io/portfolio/ — assets live under /portfolio.
+          # For a user site (<user>.github.io) or a custom domain set BASE_PATH to "" and SITE_URL to the origin.
+          NEXT_PUBLIC_BASE_PATH: "/portfolio"
+          NEXT_PUBLIC_SITE_URL: "https://pooria-zadeh.github.io/portfolio"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
