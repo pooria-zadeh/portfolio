@@ -11,7 +11,7 @@ export const experience: Role[] = [
     current: true,
     href: 'https://tali.ai',
     bullets: [
-      'Drove platform reliability with the core engineering team through tens of production incidents — root-cause analysis, fixes and postmortems — cutting repeat authentication failures by roughly 70%.',
+      'Drove platform reliability with the core engineering team through tens of production incidents — root-cause analysis and fixes — cutting repeat authentication failures by roughly 70%.',
       'Built the observability layer for authentication and session flows — custom structured logging, BigQuery dashboards and threshold alerts posted into a dedicated Slack channel — cutting detection of user-facing sign-in failures from hours of support tickets to minutes.',
       'Turned ad-hoc escalations into a repeatable incident process — alert routing, triage ownership and follow-up tracking — shortening average time to resolution by about 45%.',
       'Use Claude Code, Cursor and Codex daily for generation, refactoring, test writing and prototyping, and built the internal tooling, rules and prompt library that made the workflow repeatable team-wide — cutting typical feature turnaround by around 35%.',

@@ -18,7 +18,6 @@ export const skillGroups: SkillGroup[] = [
       'Threshold alerting',
       'Slack alert pipelines',
       'Incident response',
-      'Postmortems',
     ],
   },
   {

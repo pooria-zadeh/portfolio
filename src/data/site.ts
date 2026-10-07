@@ -10,17 +10,17 @@ export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://pooria-zad
 export const site = {
   name: 'Pooria Rajabzadeh',
   initials: 'PR',
-  role: 'Senior Software Developer — Full Stack',
-  shortRole: 'Senior Software Developer',
+  role: 'Full-Stack Software Developer',
+  shortRole: 'Full-Stack Developer',
   location: 'Waterloo, ON, Canada',
   shortLocation: 'Waterloo, ON',
   email: 'p.rajabzadeh92@gmail.com',
   phone: '+1 (519) 573-0793',
-  availability: 'Open to senior and lead roles',
+  availability: 'Open to mid-level and senior roles',
   resumeHref: '/Pooria-Rajabzadeh-Resume.pdf',
   /** Mirrors the résumé's Professional Summary — keep the two in sync. */
   summary:
-    'Senior software developer with 8+ years shipping web, mobile and platform products end to end, deep in React, Next.js and TypeScript with backend work in Nest.js, Node and Python. Owns reliability as much as features: builds the logging, dashboards and alerting that catch authentication failures before users report them, and has worked through tens of production incidents from detection to postmortem. Uses AI development tooling — Claude Code, Cursor and Codex — daily, and builds the rules and automation that make it dependable for a whole team.',
+    'Full-stack software developer with 8+ years shipping web, mobile and platform products end to end, deep in React, Next.js and TypeScript with backend work in Nest.js, Node and Python. Owns reliability as much as features: builds the logging, dashboards and alerting that catch authentication failures before users report them, and has worked through tens of production incidents from detection to resolution. Uses AI development tooling — Claude Code, Cursor and Codex — daily, and builds the rules and automation that make it dependable for a whole team.',
   links: {
     github: 'https://github.com/lordpooria',
     linkedin: 'https://www.linkedin.com/in/pooria-rajabzadeh/',
